@@ -1,0 +1,36 @@
+\expandafter\ifx\csname graph\endcsname\relax \csname newbox\endcsname\graph\fi
+\expandafter\ifx\csname graphtemp\endcsname\relax \csname newdimen\endcsname\graphtemp\fi
+\setbox\graph=\vtop{\vskip 0pt\hbox{%
+    \special{pn 2}%
+    \special{pa 112 36}%
+    \special{pa 37 261}%
+    \special{pa 337 261}%
+    \special{pa 112 36}%
+    \special{fp}%
+    \special{pn 2}%
+    \special{pa 112 36}%
+    \special{pa 112 261}%
+    \special{fp}%
+    \special{pn 2}%
+    \special{pa 112 242}%
+    \special{pa 131 242}%
+    \special{pa 131 261}%
+    \special{fp}%
+    \graphtemp=.5ex\advance\graphtemp by 0.281in
+    \rlap{\kern 0.000in\lower\graphtemp\hbox to 0pt{\fivrm $A$\hss}}%
+    \graphtemp=.5ex\advance\graphtemp by 0.131in
+    \rlap{\kern 0.243in\lower\graphtemp\hbox to 0pt{\fivrm $a$\hss}}%
+    \graphtemp=.5ex\advance\graphtemp by 0.281in
+    \rlap{\kern 0.168in\lower\graphtemp\hbox to 0pt{\fivrm $c$\hss}}%
+    \graphtemp=.5ex\advance\graphtemp by 0.150in
+    \rlap{\kern 0.037in\lower\graphtemp\hbox to 0pt{\fivrm $b$\hss}}%
+    \graphtemp=.5ex\advance\graphtemp by 0.281in
+    \rlap{\kern 0.337in\lower\graphtemp\hbox to 0pt{\fivrm $B$\hss}}%
+    \graphtemp=.5ex\advance\graphtemp by 0.000in
+    \rlap{\kern 0.094in\lower\graphtemp\hbox to 0pt{\fivrm $C$\hss}}%
+    \graphtemp=.5ex\advance\graphtemp by 0.169in
+    \rlap{\kern 0.131in\lower\graphtemp\hbox to 0pt{\fivrm $h$\hss}}%
+    \hbox{\vrule depth0.281in width0pt height 0pt}%
+    \kern 0.337in
+  }%
+}%

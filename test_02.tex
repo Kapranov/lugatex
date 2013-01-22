@@ -1,0 +1,79 @@
+\documentclass[english,russian,landscape]{article}
+\usepackage{ucs}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{fullpage}
+\usepackage[usenames,dvipsnames,x11names]{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+
+\usetikzlibrary{arrows,snakes,shapes,backgrounds}
+\usetikzlibrary{mindmap,trees,shadows,calendar}
+\usetikzlibrary{patterns}
+\usetikzlibrary{trees}
+\usetikzlibrary{calc,through}
+
+\definecolor{grayfifteen}{gray}{.85}
+\definecolor{logoblue}{rgb}{0,0,0.267}
+\definecolor{monred}{rgb}{0.8 0.9 1}
+
+\def\Black{\color{black}}
+\def\nBlue{\color{buttonshadow}}
+
+\definecolor{myborder}{rgb}{0.8,1,1}
+\definecolor{gray9}{gray}{.9}
+\definecolor{orange}{rgb}{1,.549,0}
+\definecolor{panelbackground}{gray}{.8}
+\definecolor{gray6}{gray}{.4}
+\definecolor{gray3}{gray}{.3}
+\definecolor{boldtxt}{rgb}{0.3,0.3,0.1}
+
+\definecolor{hellgelb}{rgb}{1,1,0.85}
+\definecolor{colkeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{1,0,0}
+\definecolor{colString}{rgb}{0,0.5,0}
+\definecolor{light-blue}{rgb}{0.8,0.85,1}
+\definecolor{mygray}{gray}{0.75}
+\definecolor{grayfifteen}{gray}{.85}
+\definecolor{logoblue}{rgb}{0,0,0.267}
+
+\definecolor{buttonbackground}{rgb}{0,.624,.820}
+\definecolor{buttonshadow}{rgb}{.001,0,.502}
+\definecolor{button}{rgb}{1,.549,.0}
+\definecolor{buttondisable}{gray}{.7}
+
+\pagestyle{empty}
+
+\begin{document}
+
+%	pattern=fivepointed stars,
+%			checkerboard light gray
+%			horizontal lines light gray
+%			horizontal lines gray
+%			horizontal lines dark gray
+%			horizontal lines light blue
+%			horizontal lines dark blue
+%			crosshatch dots gray
+%			crosshatch dots light steel blue
+%			
+% outline/.style={draw=#1,thick,fill=#1!50,very thick}
+%
+%\begin{tikzpicture}[outline/.style={rounded corners, shade,
+%		top color=light-blue,opacity=1,draw=blue!40!black!60,very thick,
+%		rounded corners,drop shadow={shadow xshift=1.5ex,
+%		shadow yshift=-1.5ex,opacity=.3},pattern=horizontal lines dark gray}]
+\begin{tikzpicture}[outline/.style={rounded corners,opacity=0.79,draw=black,
+		very thick,drop shadow={shadow xshift=1.5ex,shadow yshift=-1.5ex,
+		opacity=.8,color=gray!90},pattern=horizontal lines light gray,
+		inner sep=10pt}]
+	\node [outline] at (0,0) {%
+		\parbox{450pt}{%
+			\includegraphics[scale=0.99]{pymag_107}
+		}
+	};
+\end{tikzpicture}
+
+\end{document}

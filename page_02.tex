@@ -1,0 +1,25 @@
+\newpage
+ПРивет это пробная страница.
+
+
+
+As I am primarily interested in promulgating TEX as a natural vehicle
+for producing pdf files, the examples in this article are presented using
+TEX code. For example, the following code defines a hypertext jump
+to the named destination, TargetPage, located within this document.
+All examples in the electronic version of these notes work, so just click
+on <<Click Here.>>
+
+\leavevmode\htxt{\hg{Click Here}}\special{ps: %
+[ /Rect \Rect % /Rect [ xll yll xur yur ]
+/Border [ 0 0 0 ]
+/Action /GoTo
+/Dest /TargetPage
+/Subtype /Link
+/ANN pdfmark}\unhbox\bbox
+
+PostScript users need not fear, however. Included within each example
+is the pure PostScript code for making the annotation. Consider the
+example below; I have put the PostScript portion in blue. A person
+wanting to use this code in a non-TEX document need only highlight
+the blue portion with the

@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage{ocg}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\begin{document}
+
+\begin{tikzpicture}[shorten >=1pt,node distance=2cm,auto, every state/.style={fill=green!20}]
+
+\begin{ocg}{grid}{grid}{1}
+	\draw[black!20] (0,-2) grid (3,2);
+\end{ocg}
+
+\begin{ocg}{states}{2}{1}
+	\node[state] (q_0) {$q_0$};
+	\node[state] (q_1) [above right of=q_0] {$q_1$};
+	\node[state] (q_2) [below right of=q_0] {$q_2$};
+	\node[state] (q_3) [below right of=q_1] {$q_3$};
+\end{ocg}
+
+\begin{tikzpicture}[shorten >=1pt,node distance=2cm,auto,
+	every state/.style={fill=green!20}]
+	\begin{ocg}{grid}{grid}{1}
+		\draw[black!20] (0,-2) grid (3,2);
+	\end{ocg}
+	\begin{ocg}{states}{2}{1}
+	    \node[state] (q_0) {$q_0$};
+	    \node[state] (q_1) [above right of=q_0] {$q_1$};
+	    \node[state] (q_2) [below right of=q_0] {$q_2$};
+	    \node[state] (q_3) [below right of=q_1] {$q_3$};
+	\end{ocg}
+	\begin{ocg}{edges}{3}{1}
+	    \path[->] (q_0) edge node {0} (q_1)
+					    edge node [swap] {1} (q_2)
+	              (q_1) edge node {1} (q_3)
+				  		edge [loop above] node {0} ()
+                  (q_2)	edge node [swap] {0} (q_3)
+	                    edge [loop below] node {1} ();
+	\end{ocg}
+% Add some labels to the grid layer
+	\begin{ocg}{grid}{grid}{1}
+		\path (0,-2) node {(0,-2)}
+			   (3,2) node {(3,2)};
+	\end{ocg}
+\end{tikzpicture}
+\end{tikzpicture}
+
+\end{document}

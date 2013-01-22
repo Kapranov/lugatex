@@ -1,0 +1,126 @@
+\documentclass{beamer}
+
+\usepackage{tikz}
+\usepackage{ocg}
+\usetikzlibrary{shadows}
+\usepackage{hyperref}
+%----------------------------------------------------------------%
+
+% Command to toggle a layer on/off
+\newcommand{\ToggleLayer}[2]{%
+	% #1: layer name,
+	% #2: link text
+	\leavevmode%
+	\pdfstartlink user {
+		/Subtype /Link
+		/Border [0 0 0]%
+		/A <<
+			/S/JavaScript
+			/JS (
+				var aOCGs = this.getOCGs();
+				for(var i=0; aOCGs && i<aOCGs.length;i++)
+				{
+					if(aOCGs[i].name == "#1")
+					aOCGs[i].state = !aOCGs[i].state;
+				}
+				)
+			>>
+		}#2%
+		\pdfendlink%
+}
+
+% Show all layers on the current page
+\newcommand{\ShowAllLayers}[1]{%
+	% #1: layer name,
+	% #2: link text
+	\leavevmode%
+	\pdfstartlink user {
+		/Subtype /Link
+		/Border [0 0 0]%
+		/A <<
+			/S/JavaScript
+			/JS (
+				var aOCGs = this.getOCGs();
+				for(var i=0; aOCGs && i<aOCGs.length;i++)
+				{
+				aOCGs[i].state = true;
+				}
+				)
+			>>
+		}#1%
+		\pdfendlink%
+	}
+
+% Hide all layers on the current page
+\newcommand{\HideAllLayers}[1]{%
+	% #1: link text,
+	\leavevmode%
+	\pdfstartlink user {
+		/Subtype /Link
+		/Border [0 0 0]%
+		/A <<
+			/S/JavaScript
+			/JS (
+				var aOCGs = this.getOCGs();
+				for(var i=0; aOCGs && i<aOCGs.length;i++)
+				{
+					aOCGs[i].state = false;
+				}
+				)
+			>>
+		}#1%
+		\pdfendlink%
+}
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\centering
+
+% Example by Dominique Würtz
+% http://www.texample.net/tikz/examples/intersecting-rings/
+
+% Define the rings. Store them in macros to make things
+% more flexible.
+\def\ringa{(-1,0) circle (2) (-1,0) circle (3)}
+\def\ringb{(1,0) circle (2) (1,0) circle (3)}
+
+\begin{tikzpicture}[note/.style={draw,fill=yellow, drop shadow}]
+	% First we fill the intersecting area
+	% The \clip command does not allow options, therefore
+	% we have to use a scope to set the even odd rule.
+	\begin{scope}[even odd rule]
+		\begin{ocg}{Intersection}{intersection}{1}
+			% Define a clipping path. All paths outside ringa will
+			% be cut because the even odd rule is set.
+			\clip \ringa;
+			% Fill ringb. Since the even odd rule is set, only the
+			% ring will be filled, not the hole in the middle.
+			\fill[fill=orange] \ringb;
+		\end{ocg}
+	\end{scope}
+	% Then we draw the rings
+	\begin{ocg}{Ring A}{ringa}{1}
+		\draw \ringa;
+	\end{ocg}
+	\begin{ocg}{Ring B}{ringb}{1}
+		\draw \ringb;
+	\end{ocg}
+	\begin{ocg}{callout}{callout}{0}
+		\draw (0,2) -- ++(-20:3)
+			node[note,text width=3cm] {{This is a call out box.
+				Click the call out link to close}};
+	\end{ocg}
+
+	% Insert a link to toggle the call out.
+	\node[blue] {\ToggleLayer{callout}{Toggle call out}};
+\end{tikzpicture}
+
+% Insert links to toggle layer visibility
+Toggle: \ToggleLayer{Ring A}{ring A} |
+\ToggleLayer{Ring B}{ring B} |
+\ToggleLayer{Intersection}{Intersection} |
+\ShowAllLayers{Show all layers} |
+\HideAllLayers{Hide all layers}
+\end{frame}
+\end{document}

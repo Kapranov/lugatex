@@ -1,0 +1,202 @@
+%%%---> page 1
+\AddToTemplate{LugaCover}
+\AddToTemplate{Navigatorbarbg}
+\AddToTemplate{LugatexLogo}
+
+\vglue 130pt
+\hspace{-5pt}
+\mbox{%
+\colorlet{myorange}{red!30!yellow}
+\textcolor{cyan}{{\tiny \framebox{Просмотр документа возможет только
+программой:}\kern0bp\colorbox{cyan}{\textcolor{white}{Adobe Reader версии 8.0 и выше}}}}
+\pdfcomment[subject={Аннотация},author={ВНИМАНИЕ! прочитайте перед запуском
+программы},color={1 0 0},
+voffset=4pt,opacity=0.5,open=true]{Для просмотра демонстрационной версии LugaTeX,
+требуется установить на вашей операционной системе ($\text{Windows}^*$,
+Linux, Solaris, $\text{Unix}^*$) программу Adobe Reader ВЕРСИИ 9.0.
+и выше. Все функции в системе могут быть активированы и использованы только
+с помощью программы Adobe Reader. Другие программы для отображения формата
+PDF не подерживаются}}
+
+\vfill
+\mbox{}
+\hfill
+\mbox{%
+\textcolor{cyan}{\underline{{\tiny Загрузить программу Adobe Reader 9.0, можно
+$\text{здесь}^\text{%
+\mbox{\href{ftp://10.2.61.3/Adobe-Reader/}{\mbox{\includegraphics[scale=.03]{Adobe_Reader_01.png}}}}}$
+или на сайте компании $\text{Adobe}^\text{\mbox{%
+\href{http://get.Adobe.com/reader}{\mbox{\includegraphics[scale=.03]{Adobe_Reader_02.png}}}}}$}}}}
+
+\newpage
+\disableTemplate{LugaCover}
+\AddToTemplate{LugaNotes}
+\AddToTemplate{Navigatorbarbg}
+\AddToTemplate{LugatexLogo}
+
+\begin{flushleft}
+\begin{tikzpicture}
+\tikzstyle{rec} = [rectangle,rounded corners,ultra thick,draw=monred!45] 
+\node[rec,text=white,inner sep=3mm,drop shadow] (th){\parbox{0.6\textwidth}{%
+\parbox{245pt}{%
+\scriptsize{Интерактивная система знаний представляет собой интерактивные формы
+предоставления информации. Система разработана для создания интерактивных
+учебных лекцый по разным дисциплинам университетских программ, и
+экзаменационно --- модульных заданий ввиде интеративных форм заполнения и
+контроля заданий. Ответы могут быть представлены в различной форме или
+зашифрованы специальной формой. Вся система может быть зашифрована с 
+использованием пароля, печать, выделение текста, сохранение или скриншоты
+системы знаний могут быть заблокированы преподователем.
+Экзаменационные и модульные контроли могут быть представлены в различных
+формах, с возможностью отображения правельного решения или просто ответа
+или ввиде ссумы очков правельных ответов. Система позволяет включать
+как аудио так и видио материалы паралельно с лекциями. Различные
+интерактивные формы в учебных материаллах демонстрируют разнообразие
+и простоту их использования демонстрируя наглядность информации с
+различными формами предоставления знаний.}}
+}};
+\node[rec,text=myborder,anchor=south west,xshift=3mm,yshift=1mm]
+at (th.north west) {\small Интерактивная система знаний };
+\end{tikzpicture}
+\end{flushleft}
+
+\vglue 40pt
+
+\hspace{-32pt}
+\parbox{350pt}{%
+\pushButton[\ui{%
+	bordercolor={0.8 0.85 1},bgcolor={0.9 0.85 1},
+	textcolor={0 0 0},align={right},
+	uptxt={Аудио-Видео},
+	js={this.pageNum=3}
+}]{pb1}{60bp}{11bp}\kern1bp\pushButton[\ui{%
+	bordercolor={0.8 0.85 1},bgcolor={0.9 0.85 1},
+	textcolor={0 0 0},align={right},
+	uptxt={Диаграммы},
+	js={this.pageNum=25}
+}]{pb1}{61bp}{11bp}\kern1bp\pushButton[\ui{%
+	bordercolor={0.8 0.85 1},bgcolor={0.9 0.85 1},
+	textcolor={0 0 0},align={right},
+	uptxt={Анимация},
+	js={this.pageNum=26}
+}]{pb1}{61bp}{11bp}\kern1bp\pushButton[\ui{%
+	bordercolor={0.8 0.85 1},bgcolor={0.9 0.85 1},
+	textcolor={0 0 0},align={right},
+	uptxt={3D Графика},
+	js={this.pageNum=54}
+}]{pb1}{61bp}{11bp}\kern1bp\pushButton[\ui{%
+	bordercolor={0.8 0.85 1},bgcolor={0.9 0.85 1},
+	textcolor={0 0 0},align={right},
+	uptxt={Элект Формы},
+	js={this.pageNum=53}
+}]{pb1}{61bp}{11bp}\kern1bp\pushButton[\ui{%
+	bordercolor={0.8 0.85 1},bgcolor={0.9 0.85 1},
+	textcolor={0 0 0},align={right},
+	uptxt={Автор},
+	js={app.alert("\u0410\u0434\u0432\u043e\u043a\u0430\u0442\u0443\u0440\u0430")}
+}]{pb1}{60bp}{11bp}\kern1bp\pushButton[\ui{%
+	bordercolor={0.8 0.85 1},bgcolor={0.9 0.85 1},
+	textcolor={0 0 0},align={right},
+	uptxt={Заказ},
+	js={this.pageNum=56}
+}]{pb1}{60bp}{11bp}
+}
+
+\hfill
+\begin{flushleft}
+	\hspace{-20pt}
+	\begin{tabular}{llll}
+		\textcolor{myborder}{Теоретическая
+		физика~\pdfmarkupcomment[color=blue,opacity=1.0,
+		subject={Аннотация},author={Прочитайте!}]{}{%
+		Пример лекции по теоретической физике, нажмите кнопку
+	для перехода на страницу с лекциями, кнопка с названием задачи
+	- для перехода на страницу с демонстрационными примерами решения
+	задач по курсу, кнопка с названием модули - для перехода
+	на страницу с интерактивными формами, для прохождения тестовых
+	задач, итог тестов пердставлен в виде суммы правельных ответов }} &\pushButton[\ui{%
+	bgcolor={0.9 0.85 1},
+	textcolor={0 0 0},align={right},
+	uptxt={Лекция},
+	js={this.pageNum=3}
+}]{pb1}{42bp}{11bp}\kern2bp\pushButton[\ui{%
+	bgcolor={0.9 0.85 1},
+	textcolor={0 0 0},align={right},
+	uptxt={Задачи},
+	js={this.pageNum=21}
+}]{pb1}{42bp}{11bp}\kern2bp\pushButton[\ui{%
+	bgcolor={0.9 0.85 1},
+	textcolor={0 0 0},align={right},
+	uptxt={Тесты},
+	js={this.pageNum=24}
+}]{pb1}{42bp}{11bp}	&	\mbox{}	&\\
+	\textcolor{myborder}{Уравнения математической
+		физики}~\pdfmarkupcomment[color=blue,opacity=1.0,
+		subject={Аннотация},author={Прочитайте!}]{}{%
+	Пример лекции по уравнениям математической физики, нажмите кнопку
+	для перехода на страницу с лекциями, кнопка с названием задачи
+	- для перехода на страницу с демонстрационными примерами решения
+	задач по курсу, кнопка с названием модули - для перехода
+	на страницу с интерактивными формами, для прохождения тестовых
+	задач, итог тестов пердставлен в виде суммы правельных ответов }	&\pushButton[\ui{%
+	bgcolor={0.9 0.85 1},
+	textcolor={0 0 0},align={right},
+	uptxt={Лекция},
+	js={this.pageNum=28}
+}]{pb1}{42bp}{11bp}\kern2bp\pushButton[\ui{%
+	bgcolor={0.9 0.85 1},
+	textcolor={0 0 0},align={right},
+	uptxt={Задачи},
+	js={this.pageNum=39}
+}]{pb1}{42bp}{11bp}\kern2bp\pushButton[\ui{%
+	bgcolor={0.9 0.85 1},
+	textcolor={0 0 0},align={right},
+	uptxt={Модули},
+	js={this.pageNum=40}
+}]{pb1}{42bp}{11bp} &   \mbox{} &\\
+	\textcolor{myborder}{Функциональный
+		анализ}~\pdfmarkupcomment[color=blue,opacity=1.0,
+	subject={Аннотация},author={Прочитайте!}]{}{%
+	Пример лекции по функциональному анализу, нажмите кнопку
+	для перехода на страницу с лекциями, кнопка с названием задачи
+	- для перехода на страницу с демонстрационными примерами решения
+	задач по курсу, кнопка с названием модули - для перехода
+	на страницу с интерактивными формами, для прохождения тестовых
+	задач, итог тестов пердставлен в виде суммы правельных ответов }	&\pushButton[\ui{%
+	bgcolor={0.9 0.85 1},
+	textcolor={0 0 0},align={right},
+	uptxt={Лекция},
+	js={this.pageNum=41}
+}]{pb1}{42bp}{11bp}\kern2bp\pushButton[\ui{%
+	bgcolor={0.9 0.85 1},
+	textcolor={0 0 0},align={right},
+	uptxt={Задачи},
+	js={this.pageNum=50}
+}]{pb1}{42bp}{11bp}\kern2bp\pushButton[\ui{%
+	bgcolor={0.9 0.85 1},
+	textcolor={0 0 0},align={right},
+	uptxt={Модули},
+	js={this.pageNum=52}
+}]{pb1}{42bp}{11bp}
+\end{tabular}
+\end{flushleft}
+%%%--->	\newpage
+%%%--->	
+%%%--->	\begin{tikzpicture}[rounded corners,ultra thick]
+%%%--->	\shade[top color=yellow,bottom color=black] (0,0) rectangle +(2,1);
+%%%--->	\shade[left color=yellow,right color=black] (3,0) rectangle +(2,1);
+%%%--->	\shadedraw[inner color=yellow,outer color=black,draw=yellow] (6,0)
+%%%--->	rectangle +(2,1);
+%%%--->	\shade[ball color=green] (9,.5) circle (.5cm);
+%%%--->	\end{tikzpicture}
+%%%--->	
+%%%--->	\vglue 20pt
+%%%--->	\hspace{250pt}
+%%%--->	\scalebox{0.6}{%
+%%%--->	\begin{minipage}{3cm}
+%%%--->	\logo{green!80!black}{green!25!black}{green}{green!80}{leaf}\\
+%%%--->	\logo{green!50!black}{black}{green!80!black}{red!80!green}{leaf}\\
+%%%--->	\logo{red!75!black}{red!25!black}{red!75!black}{orange}{leaf}\\
+%%%--->	\logo{black!50}{black}{black!50}{black!25}{}
+%%%--->	\end{minipage}
+%%%--->	}

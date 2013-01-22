@@ -1,0 +1,181 @@
+\newpage	%--- page 5
+\disableTemplate{LugatexLogo}
+\disableTemplate{Navigatorbarbg}
+\disableTemplate{Lugamathbg}
+\AddToTemplate{Lugabgtest}
+\AddToTemplate{Navigatorbarbg}
+\AddToTemplate{LugatexLogo}
+
+\subsection{Задачи с  примерами решения}
+{\color{white}
+\noindent
+\textcolor{cyan}{\textbf{Задача}}
+Найти функцию Лагранжа следующих систем, входящихся в однородном поле
+тяжести, \textg\, --- ускорение силы тяжести.\\[5pt]
+\noindent
+\textcolor{magenta}{\textbf{Задание}}. Двойной плоский маятник,
+внимательно исследуйте~\tooltip{рисунок}{23}.
+
+
+\noindent
+\textcolor{yellow}{\textbf{Решение}}. В качестве координат берем углы $\varphi_1$\, и $\varphi_2$,
+которые нити $l_1$\, и $l_2$\, образуют с верикалью. Тогда для точки
+$m_1$\, имеем:
+
+\begin{center}
+\begin{tikzpicture}
+\tikzstyle{rec} = [rectangle,rounded corners,ultra thick,draw=monred!45]
+\node[rec,text=white, drop shadow] {\parbox{0.6\textwidth}{%
+\parbox{255pt}{%
+$$
+T_1 = \frac{1}{2} m_1 l^2_1\dot{\varphi}^2_i,\quad
+U = - m_1\text{\textg}l_1 \cos\varphi_1
+$$
+}}};
+\end{tikzpicture}
+\end{center}
+
+Чтобы найти кинетическую энергию второй точки, выражаем ее декартовы
+координаты $x_2,\, y_2$\, (начало координат в точке подвеса, осью $y$\,
+--- по вертикали вниз) через углы $\varphi_1\, \varphi_2$:
+$$
+x_2 = l_1 \sin \varphi_1 + l_2 \sin\varphi_2\qquad
+y_2= l_1 \cos \varphi_1 + l_2 \cos \varphi_2
+$$
+После этого получим:
+$$
+T_2 = \frac{m_2}{2} \left(\dot{x}^2_2 + \dot{y}^2_2\right) =
+\frac{m_2}{2}\left[
+l^2_1\dot{\varphi}^2_i + l^2_2\dot{\varphi}^2_2 + 2l_1l_2\cos\left(
+\varphi_1 - \varphi_2\right) \dot{\varphi}_1\dot{\varphi}_2
+\right]
+$$
+\textcolor{yellow}{Окончательно}:\\[15pt]
+\noindent
+\begin{tikzpicture}
+\filldraw[fill=yellow!50, draw=black!50, rounded corners=\boxroundness,drop
+shadow={opacity=.84},shadow xshift=5pt, shadow yshift=7pt]
+(0, 0) rectangle (410pt, 18pt);
+\draw node[xshift=3pt,yshift=3pt,
+inner sep=0pt,outer sep=0pt,anchor=south west] {%
+{\color{black}
+$
+L = \frac{m_1 + m_2}{2} l^2_1\dot{\varphi}^2_1 + \frac{m_2}{2}
+l^2_2\dot{\varphi}^2_2 + m_2l_1l_2 \dot{\varphi}_1 \dot{\varphi}_2\cos
+\left(\varphi_1 - \varphi_2\right) + \left(m_1 +
+m_2\right)\text{\textg}l_1\cos\varphi_1 + m_2\text{\textg}l_2\cos\varphi_2
+$
+}};
+\end{tikzpicture}
+
+\noindent
+\textcolor{magenta}{\textbf{Задание}}. Плоский маятник с массой $m_2$,
+точка подвеса которого (с массой $m_1$\, в ней) может совершать движение
+по горизонтальной прямой, внимательно смотрите~\tooltip{рисунок}{24}.
+
+
+\noindent
+\textcolor{yellow}{\textbf{Решение}}. Вводя координату $x$\, точки
+$m_1$\, и угол $\varphi$\, между нитью маятника и вертикалью,
+получим:
+
+\begin{center}
+\begin{tikzpicture}
+\filldraw[fill=yellow!50, draw=black!50, rounded corners=\boxroundness,drop
+shadow={opacity=.84},shadow xshift=5pt, shadow yshift=7pt]
+(0, 0) rectangle (236pt, 18pt);
+\draw node[xshift=3pt,yshift=3pt,
+inner sep=0pt,outer sep=0pt,anchor=south west] {%
+{\color{black}
+$
+L = \frac{m_1 + m_2}{2}\dot{x}^2 + \frac{m_2}{2}
+\left(l^2\dot{\varphi}^2 + 2l\dot{x}\dot{\varphi} \cos \varphi\right) +
+m_2\text{\textg}l\cos\varphi
+$
+}};
+\end{tikzpicture}
+\end{center}
+
+\vglue 5pt
+
+\noindent
+\textcolor{magenta}{\textbf{Задание}}. Плоский маятник,
+точка подвеса которого:\\
+\noindent
+\textbf{a)}. равномерно движется по вертикальной окружности с постоянной частотой
+$\gamma$\\ смотрите~\tooltip{рисунок}{25};\\
+\noindent
+\textbf{б)}. совершает горизонтальные колебания по закону $a \cos \gamma t$;\\
+\noindent
+\textbf{в)}. совершает вертикальные колебания по закону $a\cos \gamma t$.\\
+
+\noindent
+\textcolor{yellow}{\textbf{Решение}}.\\
+\noindent
+\textbf{а)} Координаты точки $m$:
+$$
+x = a \cos \gamma t + l \sin \varphi, \qquad
+y = -a \sin \gamma t + l \cos \varphi
+$$
+Функция Лагранжа :
+$$
+L = \frac{ml^2}{2} \dot{\varphi}^2 + mla\gamma^2 \sin
+\left(\varphi - \gamma t \right) + m\text{\textg}l\cos \varphi
+$$
+здесь опущены члены, зависящие только от времени, и исключена полная
+прозводная по времени от $mal\gamma \cos\left(\varphi - \gamma t\right)$.\\
+
+\noindent
+\text{б)}. Координаты точки $m$:
+$$
+x = a \cos \gamma t + l \sin \varphi, \qquad y = l \cos\varphi
+$$
+
+
+Функция Лагранжа (после исключения полных производных):
+
+
+$$
+L = \frac{ml^2}{2} \dot{\varphi}^2 + mla\gamma^2 \cos \gamma t
+\sin \varphi + m\text{\textg}l \cos \varphi
+$$
+
+\noindent
+\textbf{в)}. Аналогичным образом:
+$$
+L = \frac{ml^2}{2}\dot{\varphi}^2 + mla\gamma^2 \cos\gamma t
+\cos\varphi + m\text{\textg}l\cos\varphi
+$$
+
+\noindent
+\textcolor{magenta}{\textbf{Задание}}. Система, изображенна
+на~\tooltip{рисунок}{26}\, точка $m_2$\, движется по вертикальной
+оси, а вся система вращается с постоянной угловой скоростью $\Omega$\,
+вокруг этой оси.\\
+
+\noindent
+\textcolor{yellow}{\textbf{Решение}}. Вводим угол $\theta$\, между
+отрезком $a$\, и вертикалью и угол поворота $\varphi$\, всей системы
+вокруг оси вращения; $\dot{\varphi}=\Omega$. Для каждой из точек $m_1$\,
+элемент перемещения $dl^2_1 =a^2d\theta^2 + a^2\sin^2\theta d\varphi^2$.
+Для точки $m_2$\, расстояние от точки подвеса $A$\, равно $2a\cos\theta$,
+и поэтому $dl_2 = - 2a \sin \theta d\theta$. Функция Лагранжа:
+
+\vglue 15pt
+
+\begin{center}
+\begin{tikzpicture}
+\filldraw[fill=yellow!50, draw=black!50, rounded corners=\boxroundness,drop
+shadow={opacity=.84},shadow xshift=5pt, shadow yshift=7pt]
+(0, 0) rectangle (305pt, 25pt);
+\draw node[xshift=3pt,yshift=3pt,
+inner sep=0pt,outer sep=0pt,anchor=south west] {%
+{\color{black}
+$
+L = m_1 a^2 \left(\dot{\theta}^2+\Omega^2\sin^2\theta\right) + 2m_2a^2
+\sin^2\theta\cdot \dot{\theta}^2 + 2\text{\textg}a \left(m_1 + m_2\right)\cos\theta
+$
+}};
+\end{tikzpicture}
+\end{center}
+}

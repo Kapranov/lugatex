@@ -1,0 +1,1323 @@
+\documentclass[english,russian,landscape]{article}
+\usepackage{ucs}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{fullpage}
+\usepackage[usenames,dvipsnames,x11names]{xcolor}
+\usepackage{graphicx}
+\usepackage{texnames}
+\usepackage{tikz}
+\usepackage{3dplot}
+
+\usetikzlibrary{arrows,snakes,shapes,backgrounds}
+\usetikzlibrary{mindmap,trees,shadows,calendar}
+\usetikzlibrary{patterns}
+\usetikzlibrary{trees}
+\usetikzlibrary{calc,through}
+
+\definecolor{grayfifteen}{gray}{.85}
+\definecolor{logoblue}{rgb}{0,0,0.267}
+\definecolor{monred}{rgb}{0.8 0.9 1}
+
+\def\Black{\color{black}}
+\def\nBlue{\color{buttonshadow}}
+
+\definecolor{myborder}{rgb}{0.8,1,1}
+\definecolor{gray9}{gray}{.9}
+\definecolor{orange}{rgb}{1,.549,0}
+\definecolor{panelbackground}{gray}{.8}
+\definecolor{gray6}{gray}{.4}
+\definecolor{gray3}{gray}{.3}
+\definecolor{boldtxt}{rgb}{0.3,0.3,0.1}
+
+\definecolor{hellgelb}{rgb}{1,1,0.85}
+\definecolor{colkeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{1,0,0}
+\definecolor{colString}{rgb}{0,0.5,0}
+\definecolor{light-blue}{rgb}{0.8,0.85,1}
+\definecolor{mygray}{gray}{0.75}
+\definecolor{grayfifteen}{gray}{.85}
+\definecolor{logoblue}{rgb}{0,0,0.267}
+
+\definecolor{buttonbackground}{rgb}{0,.624,.820}
+\definecolor{buttonshadow}{rgb}{.001,0,.502}
+\definecolor{button}{rgb}{1,.549,.0}
+\definecolor{buttondisable}{gray}{.7}
+
+\pagestyle{empty}
+
+\begin{document}
+
+%	pattern=fivepointed stars,
+%			checkerboard light gray
+%			horizontal lines light gray
+%			horizontal lines gray
+%			horizontal lines dark gray
+%			horizontal lines light blue
+%			horizontal lines dark blue
+%			crosshatch dots gray
+%			crosshatch dots light steel blue
+%			
+% outline/.style={draw=#1,thick,fill=#1!50,very thick}
+%
+%\begin{tikzpicture}[outline/.style={rounded corners, shade,
+%		top color=light-blue,opacity=1,draw=blue!40!black!60,very thick,
+%		rounded corners,drop shadow={shadow xshift=1.5ex,
+%		shadow yshift=-1.5ex,opacity=.3},pattern=horizontal lines dark gray}]
+%%%------------------------------------------------------------------------------------------------
+%%%---> \begin{tikzpicture}[outline/.style={rounded
+%%%---> 	corners,opacity=0.8,draw=black!90!blue!40,
+%%%---> 		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+%%%---> 		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=.3,
+%%%---> 		fill=gray!80,draw=blue,thick}}]
+%%%---> 	\node [outline] at (0,0) {%
+%%%---> 		\parbox{450pt}{%
+%%%---> 			\includegraphics[scale=0.99]{./img/pymag_107}
+%%%---> 		}
+%%%---> 	};
+%%%---> \end{tikzpicture}
+%%%------------------------------------------------------------------------------------------------
+\newpage	%%%--->	page 1 N-Body kapranov
+
+\begin{tikzpicture}[outline/.style={rounded
+	corners,opacity=0.8,draw=black!90!blue!40,
+		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=0.7,
+		fill=gray!80,draw=blue,thick}}]
+	\node [outline] at (0,0) {%
+		\parbox{450pt}{%
+			\parbox{178pt}{%
+				\includegraphics[scale=0.293]{nbody}
+			}
+			\parbox{265pt}{%
+			{\bf Капранов} О. Г.\\
+			\noindent
+			{\bf Численный метод многих тел и космология}:\\
+			Восточноукраинский университет имени Владимира Даля.
+			Кафедра прикладной математики и информатики. ВНУ 2009 г.\\[2pt]
+			Космологическое моделирование $\aleph$-тел является
+			неотъемлемым инструментом в изучении формирования крупномасштабной структуры
+			Вселенной. Гравитационное моделирование, это численное решение уравнения
+			движения $\aleph$-тел взаимодействующий гравитационно.
+			Задача определения поведения совокупности $\aleph$
+			точечных масс, когда они движутся под действием их взаимных
+			гравитационных сил в соответствии с законом движения Ньютона,
+			носит название классической гравитационной задачи $\aleph$ тел.
+			Эволюция скоплений галактик (каждая рассматривается как
+			точечная масса) и развитие этих скоплений --- все это
+			всевозможные задачи, которые можно аппроксимировать.
+			Также описывается язык программирования \verb"python", библиотеки
+			визуализации и анализа данных.
+			}
+		}
+	};
+\end{tikzpicture}
+
+\newpage	%%%--->	page 2 Линде Лифшиц
+
+\begin{tikzpicture}[outline/.style={rounded
+	corners,opacity=0.8,draw=black!90!blue!40,
+		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=0.5,
+		fill=gray!80,draw=blue,thick}}]
+	\node [outline] at (0,0) {%
+		\parbox{450pt}{%
+		{\bf Лев Давидович Ландау}, (9 (22) января 1908(19080122), Баку — 1
+			апреля 1968, Москва) — советский физик, академик АН СССР
+			(избран в 1946). Лауреат Нобелевской, Ленинской и трёх
+			Сталинских премий, Герой Социалистического Труда. Член академий
+			наук Дании, Нидерландов, США, Франции, Лондонского физического
+			общества и Лондонского королевского общества.
+			Инициатор создания и соавтор Курса теоретической физики,
+			выдержавшего многократные издания и переведённого на многие
+			языки.
+			Именем Ландау названа золотая медаль, вручающаяся с 1998 г.
+			Отделением ядерной физики РАН.\\
+			{\bf Евгeний Михайлович Лифшиц} (21 февраля 1915, Харьков --- 29
+			октября 1985, Москва) --- советский физик.
+			Братья Лифшицы родились и воспитывались в семье известного
+			харьковского врача--онколога, профессора Лифшица Михаила Ильича,
+			оппонентом докт. диссертации которого был акад. И. П. Павлов.
+			Е. М. Лифшиц --- соавтор фундаментального курса по теоретической
+			физике совместно с Л. Д. Ландау (Ленинская премия, 1962).
+			Область научных знаний --- физика твердого тела, космология,
+			теория гравитации. Брат И. М. Лифшица. Ученик и ближайший друг
+			Л. Д. Ландау. Сдал «теор.минимум» Ландау среди первых пяти. В
+			дальнейшем сам участвовал в приеме «теорминимума». После
+			катастрофы с Ландау взял на себя основной труд по переизданию
+			томов «Курса».\\[3pt]
+			\includegraphics[scale=1.156]{./img/landay_02}
+%%%---			
+%%%---		Совместно со Львом Ландау построил теорию доменов в
+%%%---		ферромагнетиках и вывел уравнение движения магнитного момента
+%%%---		(Уравнение Ландау-Лифшица, 1935). В теории фазовых переходов
+%%%---		установил критерий, позволивший дать полную классификацию
+%%%---		возможных переходов II рода (Критерий Лифшица, 1941).
+%%%---		Разработал теорию молекулярных сил, действующих между
+%%%---		конденсированными телами (1954). Построил теорию
+%%%---		неустойчивостей в расширяюшейся Вселенной (1946). Вместе с И.
+%%%---		М. Халатниковым и В. А. Белинским нашел общее космологическое
+%%%---		решение уравнений Эйнштейна с особенностью во времени
+%%%---		(1970--72). Лауреат Государственных (Сталинских) премий СССР
+%%%---		(1954) за участие в  расчетах по атомному проекту, лауреат
+%%%---		Ленинской премии 1962 г. совместно с Л. Д. Ландау за
+%%%---		многотомный «Курс» теоретической физики, удостоен Премии Л. Д.
+%%%---		Ландау (1974).
+		}
+	};
+\end{tikzpicture}
+
+\newpage	%%%--->	page 3 Latex по графике
+
+\begin{tikzpicture}[outline/.style={rounded
+	corners,opacity=0.8,draw=black!90!blue!40,
+		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=.5,
+		fill=gray!80,draw=blue,thick}}]
+	\node [outline] at (0,0) {%
+		\parbox{490pt}{%
+			\parbox{178pt}{%
+				\includegraphics[scale=0.43]{./img/book_02}
+			}
+				\parbox{305pt}{%
+				{\bf Гуссенс} М. {\bf Миттельбах} Ф. {\bf Ратц} С.
+				{\bf Путеводитель по пакету \LaTeX\, и его графическим
+				расширениям}: Лаборатория знаний.
+				Издательство: БИНОМ. 2002 г. Мягкая обложка , 621 стр.
+				ISBN: 5-94774-027\\[3pt]
+				Исчерпывающий справочник по стандартным графическим
+				расширениям \LaTeX`а, позволяющим сопроводить текст
+				черно-белыми и цветными иллюстрациями высокого качества.
+				Приводятся подробные описания пакетов XY-pic, PSTricks,
+				METAPOST и PostScript-шрифтов, описываются средства для
+				представления фейнмановских диаграмм, структурных
+				химических формул, электрических схем, музыкальных партитур
+				и настольных игр. Объясняется, как при помощи программы
+				Ghostscript распечатывать PS-файлы на принтерах,
+				не поддерживающих PostScript. Для упомянутых в книге
+				пакетов приводятся адреса в Интернете. Представляет
+				интерес для всех \TeX пользователей: научных работников,
+				самостоятельно готовящих свои работы к изданию,
+				профессиональных наборщиков и дизайнеров, специалистов по
+				издательским системам и студентов соответствующих
+				специальностей.
+				}
+		}
+	};
+\end{tikzpicture}
+
+\newpage	%%%--->	page 4 latex первые шаги
+
+\begin{tikzpicture}[outline/.style={rounded
+	corners,opacity=0.8,draw=black!90!blue!40,
+		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=.5,
+		fill=gray!80,draw=blue,thick}}]
+	\node [outline] at (0,0) {%
+		\parbox{507pt}{%
+			\parbox{183pt}{%
+				\includegraphics[scale=0.43]{./img/book_04}
+			}
+				\parbox{315pt}{%
+				{\bf Грэтцер} Г. {\bf Gratzer George}. {\bf Махова} {И}.
+				{\bf Первые шаги в \LaTeXе}: Библиотека издательских
+				технологий.
+				Издательство: Мир. 2000 г. ISBN: 0-8176-4132-7,
+				5-03-003366-1\\[3pt]
+				Компактное пособие по работе в \LaTeXe\, для новичка,
+				написанное канадским математиком Г.Грэтцером, который
+				известен отечественному читателю по книге <<Общая теория
+				решеток>> (М.: <<Мир>>,1981). Основной упор делается на
+				описание \AMS\LaTeX\, для набора математических формул. На
+				конкретных образцах журнальных статей объясняются
+				основные команды и окружения пакетов \LaTeX\, и \AMS,
+				приводится много полезных адресов в Internet`e, даются
+				подробные указатели. Изложение построено так, что читатель
+				в короткий срок успевает не только ознакомиться с
+				предметом, но и приобрести первые навыки. Книга рассчитана
+				на ученого --- физика, химика, математика, --- еще не умеющего
+				работать в пакете \LaTeXe, но желающего его освоить, чтобы
+				готовить свои работы к публикации. Много полезного найдет в
+				ней и профессиональный наборщик, впервые приступающий к
+				работе в \LaTeX e.
+				}
+		}
+	};
+\end{tikzpicture}
+ 
+\newpage	%%%--->	page 5 latex и html
+
+\begin{tikzpicture}[outline/.style={rounded
+	corners,opacity=0.8,draw=black!90!blue!40,
+		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=.5,
+		fill=gray!80,draw=blue,thick}}]
+	\node [outline] at (0,0) {%
+		\parbox{455pt}{%
+			\parbox{130pt}{
+				\includegraphics[scale=0.63]{./img/book_13}
+			}
+				\parbox{315pt}{%
+				{\bf Гуссенс} М. {\bf Ратц} С. {\bf Путеводитель по пакету
+				\LaTeX\, и его
+				Web-приложениям}. Библиотека издательских технологий.
+				Издательство: Мир. 2001 г. Мягкая обложка, 604 стр.
+				ISBN   5-03-003387-4, 0-201-43311-7\\[3pt]
+				Подробный справочник, отражающий современное состояние
+				программных продуктов для представления в сети Internet
+				научных публикаций, подготовленных в \LaTeXe, и для
+				обратного преобразования Web-документов в \LaTeX-формат.
+				Дается полное описание таких средств, как HTML, XML,
+				MathML, и конвертеров для них, например \LaTeX2HTML, \TeX4ht
+				и др. Большинство упомянутых в книге пакетов имеется в
+				свободном доступе в \TeX-архивах в сети Internet. Книга
+				снабжена полным аннотированным каталогом Web-сайтов,
+				которые предоставляют исходные тексты программ и
+				документацию к ним. Представляет интерес для всех
+				\TeX-пользователей: научных работников, самостоятельно
+				готовящих свои работы к изданию, профессиональных
+				наборщиков, специалистов по издательским системам,
+				преподавателей и студентов соответствующих специальностей.
+				}
+		}
+	};
+\end{tikzpicture}
+
+\newpage	%%%--->	page 6 Основы вычислит физике т 1
+
+\begin{tikzpicture}[outline/.style={rounded
+	corners,opacity=0.8,draw=black!90!blue!40,
+		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=.5,
+		fill=gray!80,draw=blue,thick}}]
+	\node [outline] at (0,0) {%
+		\parbox{560pt}{%
+			\parbox{190pt}{
+				\includegraphics[scale=0.4]{./img/book_12}
+			}
+				\parbox{360pt}{%
+				{\bf Зализняк} В.~Е. {\bf Основы вычислительной физики}.
+				Ч.1. Введение в конечно-разностные методы. Мир физики и
+				техники. Учебное пособие для ВУЗов. Издательство
+				Техносфера. 2008 г. 224 стр. ISBN: 978-5-94836-132-1\\[3pt]
+				Предлагаемая книга является первой частью курса «Основы
+				вычислительной физики» и рассматривает методы решения
+				уравнений математической физики. Описывается построение
+				вычислительных моделей для исследований таких явлений, как
+				теплопроводность, распространение акустических волн,
+				движение сжимаемой среды и движение вязкой несжимаемой
+				жидкости. Приводятся методы решения стационарных уравнений.
+				Материал излагается в простой и доступной форме, содержит
+				множество примеров, демонстрирующих применение
+				рассматриваемых методов. Книга дополняется пакетом
+				программ, реализующим большинство изложенных методов. Этот
+				пакет представляет собой набор функций для среды MATLAB и
+				может быть использован как для практических занятий, так и
+				при выполнении курсовых и дипломных проектов. Книга
+				предназначена для студентов старших курсов, магистрантов и
+				аспирантов физических и инженерных специальностей.
+				}
+		}
+	};
+\end{tikzpicture}
+
+\newpage	%%%--->	page 7 Основы вычислит физике т2
+
+\begin{tikzpicture}[outline/.style={rounded
+	corners,opacity=0.8,draw=black!90!blue!40,
+		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=.5,
+		fill=gray!80,draw=blue,thick}}]
+	\node [outline] at (0,0) {%
+		\parbox{560pt}{%
+			\parbox{190pt}{
+				\includegraphics[scale=0.63]{./img/book_03}
+			}
+				\parbox{360pt}{%
+				{\bf Зализняк} В.~Е. {\bf Основы вычислительной физики}.
+				Часть 2. {\bf Введение в методы частиц}.
+				РХД. 2006 г. 156 стр. ISBN 5-93972-481-7\\[3pt]
+				Эта книга посвящена одному из важнейших вопросов
+				компьютерного моделирования, а именно, моделированию
+				физических систем из движения частиц составляющих эти
+				системы. Примерами таких систем являются звёзды в
+				галактиках, ионы и электроны в плазме, атомы и молекулы в
+				твёрдых телах и жидкостях, гранулированная среда и элементы
+				сплошной среды. Книга является введением в методы частиц,
+				основанные на моделях частица-частица и частица-сетка. В
+				ней приводятся формулировки вычислительных моделей для
+				исследования свойств различных физических систем в рамках
+				вычислительного эксперимента. Также в ней рассматриваются
+				некоторые основные идеи метода Монте-Карло, который часто
+				используется вместе с методами частиц. Приводятся примеры
+				различных вычислительных экспериментов, которые
+				демонстрируют применение рассмотренных методов. Книга
+				дополняется приложением, в котором приводятся параметры
+				часто используемых на практике потенциалов межатомного
+				взаимодействия. Прежде всего книга предназначена для
+				студентов старших курсов физических и инженерных
+				специальностей. Уровень изложения материала предполагает,
+				что читатель освоил, помимо основного курса физики, курсы
+				уравнений математической физики и методов вычислений.
+				}
+		}
+	};
+\end{tikzpicture}
+
+\newpage	%%%--->	page 8 Основы вычислите вычислений
+
+\begin{tikzpicture}[outline/.style={rounded
+	corners,opacity=0.8,draw=black!90!blue!40,
+		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=.5,
+		fill=gray!80,draw=blue,thick}}]
+	\node [outline] at (0,0) {%
+		\parbox{560pt}{%
+			\parbox{190pt}{
+				\includegraphics[scale=0.4]{./img/book_11}
+			}
+				\parbox{360pt}{%
+				{\bf Зализняк} В.~Е. {\bf Основы научных вычислений.
+				Введение в численные методы для физиков и инженеров}.
+				Учебное пособие. Издательство Едиториал УРСС, 2002 г.
+				Мягкая обложка , 296 стр. ISBN: 5-354-00138-2\\[3pt]
+				Книга предназначена для использования в курсе численных
+				методов. В ней рассматриваются такие вопросы, как решение
+				уравнений, вычисление собственных значений и интегралов,
+				интерполяция и аппроксимация функций, а также численное
+				решение задачи Коши и краевой задачи для обыкновенных
+				дифференциальных уравнений. Книга содержит множество
+				примеров, демонстрирующих применение рассматриваемых
+				методов. В дополнение приводится разнообразный справочный
+				материал и краткий обзор библиотек программ, широко
+				используемых в научных вычислениях.
+				}
+		}
+	};
+\end{tikzpicture}
+
+\newpage	%%%--->	page 9 Данко Высша математика в примерах и задачах
+
+\begin{tikzpicture}[outline/.style={rounded
+	corners,opacity=0.8,draw=black!90!blue!40,
+		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=.5,
+		fill=gray!80,draw=blue,thick}}]
+	\node [outline] at (0,0) {%
+		\parbox{560pt}{%
+			\parbox{190pt}{
+				\includegraphics[scale=0.4]{./img/book_09}
+			}
+				\parbox{360pt}{%
+				{\bf Попов}~А.~Г. {\bf Данко}~ П.~Е. {\bf Высшая математика
+				в упражнениях и задачах}.
+				В 2 ч. Ч.1. 6-е изд. Издательство ОНИКС. 2006 г. 
+				ISBN: 5-329-01226-0, 5-488-00714-8\\[3pt]
+				Содержание первой части охватывает следующие разделы
+				программы: аналитическую геометрию, основы линейной
+				алгебры, дифференциальное исчисление функций одной и
+				нескольких переменных, интегральное исчисление функций
+				одной переменной, элементы линейного программирования.
+				В каждом параграфе приводятся необходимые теоретические
+				сведения. Типовые задачи даются с подробными решениями.
+				Имеется большое количество задач для самостоятельной
+				работы.\\
+				Содержание 2 части охватывает следующие разделы программы:
+				кратные и криволинейные интегралы, ряды, дифференциальные
+				уравнения, теорию вероятностей, теорию функций комплексного
+				переменного, исчисление, методы вычислений, основы
+				вариационного исчисления. В каждом параграфе приводятся
+				необходимые теоретические сведения. Типовые задачи даются с
+				подробными решениями. Имеется большое количество задач для
+				самостоятельной работы.
+				}
+		}
+	};
+\end{tikzpicture}
+
+\newpage	%%%--->	page 10 Сборник задач Теорет Физика
+
+\begin{tikzpicture}[outline/.style={rounded
+	corners,opacity=0.8,draw=black!90!blue!40,
+		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=.5,
+		fill=gray!80,draw=blue,thick}}]
+	\node [outline] at (0,0) {%
+		\parbox{560pt}{%
+			\parbox{190pt}{
+				\includegraphics[scale=0.4]{./img/book_07}
+			}
+				\parbox{360pt}{%
+				{\bf Гладков} С.~О. {\bf Сборник задач по теоретической и
+				математической физике}.
+				Некоторые миниатюры из физико--математического рая.
+				Издательство ФИЗМАТЛИТ. 2006 г. Твердый переплет. 460 стр.
+				ISBN: 5-94052-119-3\\[3pt]
+				Предлагаемый сборник включает в себя большое количество
+				оригинальных задач с подробным анализом решений и
+				предназначается в первую очередь студентам--физикам,
+				специализирующимся как в области теоретической физики, так
+				и в физике магнитных явлений и физике твердого тела.
+				Задачник будет полезен в качестве вспомогательного
+				материала при сдаче аспирантских экзаменов по <<Курсу
+				теоретической физики>> Л.~Д.~Ландау и Е.~М.~Лифшица. Он может
+				быть использован также преподавателями и аспирантами на
+				семинарских занятиях со студентами для анализа и подробного
+				разбора содержащихся в нем задач.
+				}
+		}
+	};
+\end{tikzpicture}
+
+\newpage	%%%--->	page 11 Работа над Дисертацией
+
+\begin{tikzpicture}[outline/.style={rounded
+	corners,opacity=0.8,draw=black!90!blue!40,
+		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=.5,
+		fill=gray!80,draw=blue,thick}}]
+	\node [outline] at (0,0) {%
+		\parbox{560pt}{%
+			\parbox{190pt}{
+				\includegraphics[scale=0.4]{./img/book_08}
+			}
+				\parbox{360pt}{%
+				{\bf Рыжиков}~Ю. {\bf Работа над диссертацией по
+				техническим наукам}. 2-е изд., перераб. и доп
+				Издательство БХВ-Петербург, 2007 г. 512 стр.\\
+				SBN: 5-9775-0138-2\\[3pt]
+				Книга представляет собой свод методических рекомендаций по
+				написанию и оформлению диссертаций. В ней приведены
+				требования к ученым и к диссертациям; даны определения
+				базовых понятий науковедения; описана методика постановки
+				задачи, сбора материала, написания глав диссертации,
+				подготовки к защите. Дан обзор теоретического вооружения
+				<<технического>> ученого (логика, прикладная математика,
+				программирование) и его технологической оснастки (пакеты
+				математических программ, система подготовки математических
+				рукописей \LaTeX, Visio). Большое внимание уделяется
+				литературной отделке рукописи, приводятся многочисленные
+				примеры стилистических погрешностей и рекомендации по их
+				устранению. Для аспирантов, докторантов и соискателей
+				ученых степеней, студентов технических вузов и
+				преподавателей.
+				}
+		}
+	};
+\end{tikzpicture}
+
+\newpage	% page 12 Линде Т 1 Механика
+
+\begin{tikzpicture}[outline/.style={rounded
+	corners,opacity=0.8,draw=black!90!blue!40,
+		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=.5,
+		fill=gray!80,draw=blue,thick}}]
+	\node [outline] at (0,0) {%
+		\parbox{510pt}{%
+			\parbox{225pt}{%
+				\includegraphics[scale=0.45]{./img/book_05}
+			}
+				\parbox{275pt}{%
+				{\bf Ландау} Л. Д. {\bf Лифшиц} Е. М.
+				{\bf Теоретическая физика}: Учеб.
+				пособие. --- В 10--ти т. Т. I. Механика. --- 4--е изд.,
+				испр. --- М.: Наука. Гл. ред. физ.--мат.лит., 1988. ---
+				215 с.\\ ISBN 5-02-013850-9 (т. I)\\[3pt]
+				Настоящим томом начинается переиздание полного курса
+				теоретической физики, заслужившего широкое признание
+				в нашей стране и за рубежом.\\
+				Первый том посвящен изложению механики как части
+				теоретической физики. Рассмотрены лагранжева и гамильтонова
+				формулировки уравнений механики, законы сохранения в
+				механике, теория столкновения частиц, теория колебаний
+				и движения твердого тела. 3--е изд. <<Механики>> выходило
+				в 1973 г.\\[3pt]
+				Для студентов старших курсов, аспирантов и научных
+				работников, специализирующихся в области теоретической
+				физики.
+				}
+		}
+	};
+\end{tikzpicture}
+
+\newpage	% Page 13 Linde T 1 Cover English
+
+\begin{tikzpicture}[outline/.style={rounded
+	corners,opacity=0.8,draw=black!90!blue!40,
+		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=.5,
+		fill=gray!80,draw=blue,thick}}]
+	\node [outline] at (0,0) {%
+		\parbox{245pt}{%
+			\parbox{235pt}{%
+				\includegraphics[scale=0.8]{./img/book_15}
+			}
+		}
+	};
+\end{tikzpicture}
+
+\newpage	% Page 14 Linde T 2 Cover English
+
+\begin{tikzpicture}[outline/.style={rounded
+	corners,opacity=0.8,draw=black!90!blue!40,
+		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=.5,
+		fill=gray!80,draw=blue,thick}}]
+	\node [outline] at (0,0) {%
+		\parbox{245pt}{%
+			\parbox{235pt}{%
+				\includegraphics[scale=0.71]{./img/book_14}
+			}
+		}
+	};
+\end{tikzpicture}
+
+\newpage	% Page 15 Theoretical Physics Gred Baumann
+
+\begin{tikzpicture}[outline/.style={rounded
+	corners,opacity=0.8,draw=black!90!blue!40,
+		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=.5,
+		fill=gray!80,draw=blue,thick}}]
+	\node [outline] at (0,0) {%
+		\parbox{315pt}{%
+			\parbox{305pt}{%
+				\includegraphics[scale=1.57]{./img/book_16}
+			}
+		}
+	};
+\end{tikzpicture}
+
+\newpage	% Page 16 Theoretical Physics Gred Baumann T 1 Cover
+
+\begin{tikzpicture}[outline/.style={rounded
+	corners,opacity=0.8,draw=black!90!blue!40,
+		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=.5,
+		fill=gray!80,draw=blue,thick}}]
+	\node [outline] at (0,0) {%
+		\parbox{315pt}{%
+			\parbox{305pt}{%
+				\includegraphics[scale=1.57]{./img/book_19}
+			}
+		}
+	};
+\end{tikzpicture}
+
+\newpage	% Page 17 Theoretical Physics Gred Baumann T 2 Cover
+
+\begin{tikzpicture}[outline/.style={rounded
+	corners,opacity=0.8,draw=black!90!blue!40,
+		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=.5,
+		fill=gray!80,draw=blue,thick}}]
+	\node [outline] at (0,0) {%
+		\parbox{315pt}{%
+			\parbox{305pt}{%
+				\includegraphics[scale=1.57]{./img/book_17}
+			}
+		}
+	};
+\end{tikzpicture}
+
+\newpage	% Page 18 Cover 1951 The Classical Theory of Fields
+
+\begin{tikzpicture}[outline/.style={rounded
+	corners,opacity=0.8,draw=black!90!blue!40,
+		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=.5,
+		fill=gray!80,draw=blue,thick}}]
+	\node [outline] at (0,0) {%
+		\parbox{355pt}{%
+			\parbox{345pt}{%
+				\includegraphics[scale=2.1]{./img/book_18}
+			}
+		}
+	};
+\end{tikzpicture}
+
+\newpage	% Page 19 Линде Т 2 Теория Поля
+
+\begin{tikzpicture}[outline/.style={rounded
+	corners,opacity=0.8,draw=black!90!blue!40,
+		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=.5,
+		fill=gray!80,draw=blue,thick}}]
+	\node [outline] at (0,0) {%
+		\parbox{510pt}{%
+			\parbox{225pt}{%
+				\includegraphics[scale=0.456]{./img/book_06}
+			}
+				\parbox{275pt}{%
+				{\bf Ландау} Л. Д. {\bf Лифшиц} Е. М.
+				{\bf Теоретическая физика}: Учеб.
+				пособие. --- В 10--ти т. Т. II. Теория поля.
+				Издательство ФИЗМАТЛИТ, 2006 г. Твердый переплет, 534 стр.
+				ISBN 5-9221-0056-4, 5-9221-0053-X\\[3pt]
+				Второй том курса теоретической физики, заслужившего широкую
+				известность в нашей стране и за рубежом, посвящен
+				классической теории электромагнитных и гравитационных
+				полей. Излагаются основы специальной теории
+				относительности, вывод уравнений электродинамики из
+				принципа наименьшего действия, вопросы распространения и
+				излучения электромагнитных волн. Последние главы книги
+				посвящены общей теории относительности. Параллельно с
+				развитием этой теории излагаются основы тензорного анализа.
+				Для студентов университетов, студентов физических
+				специальностей вузов, а также для аспирантов
+				соответствующих специальностей.
+				}
+		}
+	};
+\end{tikzpicture}
+
+\newpage	% Page 20 Пикулин Уравнения математической физике
+
+\begin{tikzpicture}[outline/.style={rounded
+	corners,opacity=0.8,draw=black!90!blue!40,
+		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=.7,
+		fill=gray!80,draw=blue,thick}}]
+	\node [outline] at (0,0) {%
+		\parbox{450pt}{%
+			\parbox{165pt}{%
+				\includegraphics[scale=0.802]{./img/pikulyn_book}
+			}
+				\parbox{275pt}{%
+				{\centering{{\bf Пикулин}~В.~П., {\bf Похожаев}~С.~И.}}\\
+				{\bf Практический курс по уравнениям математической
+				физики}:\\
+				2-е издание, стереотипное, МЦНМО. 2004
+				{\scriptsize ISBN: 5-94057-148-4.}\\[3pt]
+				{\small
+				Книга представляет собой изложение (демонстрацию)
+				основных методов решения некоторых задач
+				классической математической физики. Рассматриваются
+				метод Фурье, метод    конформных отображений, метод
+				функции Грина для уравнений Лапласа и Пуассона на
+				плоскости и в пространстве, способы решения краевых
+				задач для уравнений Гельмгольца, метод возмущений,
+				методы интегральных преобразований (Фурье, Лапласа,
+				Ханкеля) при решении нестационарных краевых задач,
+				а также другие методы для решения
+				эллиптических, гиперболических и параболических
+				задач. В конце каждой главы приводятся задачи для
+				самостоятельного решения и ответы к ним.\\
+				Для студентов высших учебных заведений, научных
+				работников и инженеров.\\
+				Первое издание книги опубликовано в 1995 г.
+				издательством <<ФИЗМАТЛИТ>>.}
+				}
+		}
+	};
+\end{tikzpicture}
+
+\newpage	% Page 21 Арлинский Функциональный Анализ
+
+\begin{tikzpicture}[outline/.style={rounded
+	corners,opacity=0.8,draw=black!90!blue!40,
+		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=.3,
+		fill=gray!80,draw=blue,thick}}]
+	\node [outline] at (0,0) {%
+		\parbox{650pt}{%
+				\includegraphics[scale=1.17]{./img/arlinsky_01}
+		}
+	};
+\end{tikzpicture}
+
+\newpage	% Page 22 Newton Bib 
+
+\begin{tikzpicture}[outline/.style={rounded
+	corners,opacity=0.8,draw=black!90!blue!40,
+		very thick,fill=blue!20,pattern=horizontal lines light gray, line width=3pt,
+		copy shadow={shadow xshift=1ex,shadow yshift=-1ex,opacity=.5,
+		fill=gray!80,draw=blue,thick}}]
+	\node [outline] at (0,0) {%
+		\parbox{500pt}{%
+			\parbox{190pt}{%
+				\includegraphics[scale=0.65]{./img/Newton}
+			}
+				\parbox{275pt}{%
+				{\bf Исаак Ньютон} (англ. Sir Isaac Newton, 25 декабря 1642
+				— 20 марта 1727 по юлианскому календарю, использовавшемуся
+				в Англии в то время; или 4 января 1643 — 31 марта 1727 по
+				григорианскому календарю) — великий английский физик,
+				математик и астроном. Автор фундаментального труда
+				«Математические начала натуральной философии» (лат.
+				Philosophiae Naturalis Principia Mathematica), в котором он
+				описал закон всемирного тяготения и так называемые Законы
+				Ньютона, заложившие основы классической механики.
+				Разработал дифференциальное и интегральное исчисление,
+				теорию цветности и многие другие математические и
+				физические теории.
+				}
+		}
+	};
+\end{tikzpicture}
+
+%%%---> create picture tasks physics
+\newpage	% Page 23 picture 1
+%%%--->
+%%%---> \tdplotsetmaincoords{70}{110}
+%%%---> \begin{tikzpicture}[tdplot_main_coords]
+%%%---> 	\draw[thick,->] (0,0,0) -- (1,0,0) node[anchor=north east]{$x$};
+%%%---> 	\draw[thick,->] (0,0,0) -- (0,1,0) node[anchor=north west]{$y$};
+%%%---> 	\draw[thick,->] (0,0,0) -- (0,0,1) node[anchor=south]{$z$};
+%%%---> \end{tikzpicture}
+%%%---> 
+\newpage
+
+\ifx\du\undefined
+  \newlength{\du}
+\fi
+\setlength{\du}{15\unitlength}
+
+\begin{tikzpicture}
+\pgftransformxscale{1.000000}
+\pgftransformyscale{-1.000000}
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+\pgfsetfillcolor{dialinecolor}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetdash{}{0pt}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\pgfsetarrowsend{stealth}
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (5.050000\du,2.100000\du)--(15.050000\du,2.150000\du);
+}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetdash{}{0pt}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\pgfsetarrowsend{stealth}
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (5.000000\du,2.150000\du)--(4.950000\du,13.400000\du);
+}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetdash{}{0pt}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (5.000000\du,2.250000\du)--(8.950000\du,8.300000\du);
+}
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (5.000000\du,2.250000\du)--(8.950000\du,8.300000\du);
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetmiterjoin
+\pgfsetbuttcap
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+\pgfpathmoveto{\pgfpoint{8.950000\du}{8.300000\du}}
+\pgfpathcurveto{\pgfpoint{8.824400\du}{8.382003\du}}{\pgfpoint{8.616796\du}{8.338407\du}}{\pgfpoint{8.534792\du}{8.212806\du}}
+\pgfpathcurveto{\pgfpoint{8.452789\du}{8.087206\du}}{\pgfpoint{8.496386\du}{7.879602\du}}{\pgfpoint{8.621986\du}{7.797599\du}}
+\pgfpathcurveto{\pgfpoint{8.747586\du}{7.715595\du}}{\pgfpoint{8.955190\du}{7.759192\du}}{\pgfpoint{9.037194\du}{7.884792\du}}
+\pgfpathcurveto{\pgfpoint{9.119197\du}{8.010393\du}}{\pgfpoint{9.075600\du}{8.217997\du}}{\pgfpoint{8.950000\du}{8.300000\du}}
+\pgfusepath{fill}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetdash{}{0pt}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (8.900000\du,8.150000\du)--(14.100000\du,12.100000\du);
+}
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (8.900000\du,8.150000\du)--(14.100000\du,12.100000\du);
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetmiterjoin
+\pgfsetbuttcap
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+\pgfpathmoveto{\pgfpoint{14.100000\du}{12.100000\du}}
+\pgfpathcurveto{\pgfpoint{14.009267\du}{12.219446\du}}{\pgfpoint{13.799087\du}{12.248160\du}}{\pgfpoint{13.679640\du}{12.157426\du}}
+\pgfpathcurveto{\pgfpoint{13.560194\du}{12.066693\du}}{\pgfpoint{13.531481\du}{11.856513\du}}{\pgfpoint{13.622214\du}{11.737067\du}}
+\pgfpathcurveto{\pgfpoint{13.712948\du}{11.617620\du}}{\pgfpoint{13.923127\du}{11.588907\du}}{\pgfpoint{14.042574\du}{11.679640\du}}
+\pgfpathcurveto{\pgfpoint{14.162020\du}{11.770374\du}}{\pgfpoint{14.190733\du}{11.980554\du}}{\pgfpoint{14.100000\du}{12.100000\du}}
+\pgfusepath{fill}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{{\pgflinewidth}{0.200000\du}}{0cm}
+\pgfsetdash{{\pgflinewidth}{0.200000\du}}{0cm}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (8.750000\du,8.100000\du)--(8.800000\du,12.050000\du);
+}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetdash{}{0pt}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\pgfpathmoveto{\pgfpoint{4.949979\du}{3.149988\du}}
+\pgfpatharc{120}{17}{0.343853\du/0.343853\du}
+\pgfusepath{stroke}
+}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetdash{}{0pt}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\pgfpathmoveto{\pgfpoint{8.749975\du}{8.849982\du}}
+\pgfpatharc{126}{9}{0.447834\du/0.447834\du}
+\pgfusepath{stroke}
+}
+\end{tikzpicture}
+
+\newpage	% Page 24 picture 2
+
+\ifx\du\undefined
+  \newlength{\du}
+\fi
+\setlength{\du}{15\unitlength}
+
+\begin{tikzpicture}
+\pgftransformxscale{1.000000}
+\pgftransformyscale{-1.000000}
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+\pgfsetfillcolor{dialinecolor}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetdash{}{0pt}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\pgfsetarrowsend{stealth}
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (4.974783\du,2.074756\du)--(15.050000\du,2.150000\du);
+}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{{\pgflinewidth}{0.200000\du}}{0cm}
+\pgfsetdash{{\pgflinewidth}{0.200000\du}}{0cm}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (8.952879\du,2.177243\du)--(8.952879\du,6.914858\du);
+}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetdash{}{0pt}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\pgfpathmoveto{\pgfpoint{8.962106\du}{3.228484\du}}
+\pgfpatharc{124}{11}{0.456626\du/0.456626\du}
+\pgfusepath{stroke}
+}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{{\pgflinewidth}{0.200000\du}}{0cm}
+\pgfsetdash{{\pgflinewidth}{0.200000\du}}{0cm}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (4.957726\du,0.232699\du)--(4.993081\du,4.899604\du);
+}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetdash{}{0pt}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+}
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (8.811458\du,1.894400\du)--(13.372296\du,7.515899\du);
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetmiterjoin
+\pgfsetbuttcap
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+\pgfpathmoveto{\pgfpoint{8.811458\du}{1.894400\du}}
+\pgfpathcurveto{\pgfpoint{8.927942\du}{1.799894\du}}{\pgfpoint{9.138932\du}{1.821872\du}}{\pgfpoint{9.233438\du}{1.938356\du}}
+\pgfpathcurveto{\pgfpoint{9.327944\du}{2.054841\du}}{\pgfpoint{9.305966\du}{2.265831\du}}{\pgfpoint{9.189482\du}{2.360337\du}}
+\pgfpathcurveto{\pgfpoint{9.072998\du}{2.454843\du}}{\pgfpoint{8.862007\du}{2.432865\du}}{\pgfpoint{8.767501\du}{2.316381\du}}
+\pgfpathcurveto{\pgfpoint{8.672995\du}{2.199897\du}}{\pgfpoint{8.694973\du}{1.988906\du}}{\pgfpoint{8.811458\du}{1.894400\du}}
+\pgfusepath{fill}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetmiterjoin
+\pgfsetbuttcap
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+\pgfpathmoveto{\pgfpoint{13.372296\du}{7.515899\du}}
+\pgfpathcurveto{\pgfpoint{13.255812\du}{7.610405\du}}{\pgfpoint{13.044822\du}{7.588427\du}}{\pgfpoint{12.950315\du}{7.471943\du}}
+\pgfpathcurveto{\pgfpoint{12.855809\du}{7.355458\du}}{\pgfpoint{12.877787\du}{7.144468\du}}{\pgfpoint{12.994272\du}{7.049962\du}}
+\pgfpathcurveto{\pgfpoint{13.110756\du}{6.955456\du}}{\pgfpoint{13.321746\du}{6.977434\du}}{\pgfpoint{13.416253\du}{7.093918\du}}
+\pgfpathcurveto{\pgfpoint{13.510759\du}{7.210402\du}}{\pgfpoint{13.488781\du}{7.421393\du}}{\pgfpoint{13.372296\du}{7.515899\du}}
+\pgfusepath{fill}
+\end{tikzpicture}
+
+\newpage	% Page 25 picture 3
+
+\ifx\du\undefined
+  \newlength{\du}
+\fi
+\setlength{\du}{15\unitlength}
+\begin{tikzpicture}
+\pgftransformxscale{1.000000}
+\pgftransformyscale{-1.000000}
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+\pgfsetfillcolor{dialinecolor}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetdash{}{0pt}
+\pgfsetmiterjoin
+\pgfsetbuttcap
+\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+\pgfsetfillcolor{dialinecolor}
+\pgfpathmoveto{\pgfpoint{5.063792\du}{-0.561323\du}}
+\pgfpathcurveto{\pgfpoint{8.740747\du}{-0.455257\du}}{\pgfpoint{8.563970\du}{5.114683\du}}{\pgfpoint{4.957726\du}{4.989466\du}}
+\pgfpathcurveto{\pgfpoint{1.351481\du}{4.864248\du}}{\pgfpoint{1.386836\du}{-0.667389\du}}{\pgfpoint{5.063792\du}{-0.561323\du}}
+\pgfusepath{fill}
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\pgfpathmoveto{\pgfpoint{5.063792\du}{-0.561323\du}}
+\pgfpathcurveto{\pgfpoint{8.740747\du}{-0.455257\du}}{\pgfpoint{8.563970\du}{5.114683\du}}{\pgfpoint{4.957726\du}{4.989466\du}}
+\pgfpathcurveto{\pgfpoint{1.351481\du}{4.864248\du}}{\pgfpoint{1.386836\du}{-0.667389\du}}{\pgfpoint{5.063792\du}{-0.561323\du}}
+\pgfusepath{stroke}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{{\pgflinewidth}{0.200000\du}}{0cm}
+\pgfsetdash{{\pgflinewidth}{0.200000\du}}{0cm}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (7.503310\du,3.626812\du)--(7.503310\du,7.004720\du);
+}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetdash{}{0pt}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\pgfpathmoveto{\pgfpoint{7.503294\du}{4.423763\du}}
+\pgfpatharc{138}{1}{0.367501\du/0.367501\du}
+\pgfusepath{stroke}
+}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetdash{}{0pt}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+}
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (7.291178\du,3.343969\du)--(11.180265\du,7.252207\du);
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetmiterjoin
+\pgfsetbuttcap
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+\pgfpathmoveto{\pgfpoint{7.291178\du}{3.343969\du}}
+\pgfpathcurveto{\pgfpoint{7.397504\du}{3.238164\du}}{\pgfpoint{7.609636\du}{3.238685\du}}{\pgfpoint{7.715441\du}{3.345011\du}}
+\pgfpathcurveto{\pgfpoint{7.821246\du}{3.451337\du}}{\pgfpoint{7.820725\du}{3.663469\du}}{\pgfpoint{7.714399\du}{3.769274\du}}
+\pgfpathcurveto{\pgfpoint{7.608072\du}{3.875079\du}}{\pgfpoint{7.395941\du}{3.874558\du}}{\pgfpoint{7.290136\du}{3.768232\du}}
+\pgfpathcurveto{\pgfpoint{7.184331\du}{3.661906\du}}{\pgfpoint{7.184852\du}{3.449774\du}}{\pgfpoint{7.291178\du}{3.343969\du}}
+\pgfusepath{fill}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetmiterjoin
+\pgfsetbuttcap
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+\pgfpathmoveto{\pgfpoint{11.180265\du}{7.252207\du}}
+\pgfpathcurveto{\pgfpoint{11.073939\du}{7.358012\du}}{\pgfpoint{10.861808\du}{7.357491\du}}{\pgfpoint{10.756002\du}{7.251165\du}}
+\pgfpathcurveto{\pgfpoint{10.650197\du}{7.144839\du}}{\pgfpoint{10.650718\du}{6.932708\du}}{\pgfpoint{10.757044\du}{6.826902\du}}
+\pgfpathcurveto{\pgfpoint{10.863371\du}{6.721097\du}}{\pgfpoint{11.075502\du}{6.721618\du}}{\pgfpoint{11.181307\du}{6.827944\du}}
+\pgfpathcurveto{\pgfpoint{11.287112\du}{6.934271\du}}{\pgfpoint{11.286591\du}{7.146402\du}}{\pgfpoint{11.180265\du}{7.252207\du}}
+\pgfusepath{fill}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetdash{}{0pt}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\pgfsetarrowsend{stealth}
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (4.957726\du,2.141887\du)--(4.957726\du,9.126040\du);
+}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetdash{}{0pt}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\pgfsetarrowsend{stealth}
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (5.028436\du,1.984262\du)--(7.043691\du,-0.101703\du);
+}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetdash{}{0pt}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\pgfsetarrowsend{stealth}
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (5.003744\du,2.038199\du)--(12.382347\du,2.161038\du);
+}
+\end{tikzpicture}
+
+\newpage	% Page 26 picture 4
+
+\ifx\du\undefined
+  \newlength{\du}
+\fi
+\setlength{\du}{15\unitlength}
+\begin{tikzpicture}
+\pgftransformxscale{1.000000}
+\pgftransformyscale{-1.000000}
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+\pgfsetfillcolor{dialinecolor}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetdash{}{0pt}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (6.937625\du,0.145784\du)--(6.937625\du,16.217586\du);
+}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetdash{}{0pt}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+}
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (6.725492\du,0.817536\du)--(12.170215\du,8.156568\du);
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetmiterjoin
+\pgfsetbuttcap
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+\pgfpathmoveto{\pgfpoint{6.725492\du}{0.817536\du}}
+\pgfpathcurveto{\pgfpoint{6.845960\du}{0.728162\du}}{\pgfpoint{7.055801\du}{0.759257\du}}{\pgfpoint{7.145174\du}{0.879724\du}}
+\pgfpathcurveto{\pgfpoint{7.234547\du}{1.000192\du}}{\pgfpoint{7.203453\du}{1.210033\du}}{\pgfpoint{7.082985\du}{1.299406\du}}
+\pgfpathcurveto{\pgfpoint{6.962518\du}{1.388779\du}}{\pgfpoint{6.752677\du}{1.357685\du}}{\pgfpoint{6.663304\du}{1.237217\du}}
+\pgfpathcurveto{\pgfpoint{6.573930\du}{1.116749\du}}{\pgfpoint{6.605025\du}{0.906909\du}}{\pgfpoint{6.725492\du}{0.817536\du}}
+\pgfusepath{fill}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetmiterjoin
+\pgfsetbuttcap
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+\pgfpathmoveto{\pgfpoint{12.170215\du}{8.156568\du}}
+\pgfpathcurveto{\pgfpoint{12.049747\du}{8.245941\du}}{\pgfpoint{11.839906\du}{8.214847\du}}{\pgfpoint{11.750533\du}{8.094379\du}}
+\pgfpathcurveto{\pgfpoint{11.661160\du}{7.973912\du}}{\pgfpoint{11.692255\du}{7.764071\du}}{\pgfpoint{11.812722\du}{7.674698\du}}
+\pgfpathcurveto{\pgfpoint{11.933190\du}{7.585325\du}}{\pgfpoint{12.143030\du}{7.616419\du}}{\pgfpoint{12.232404\du}{7.736887\du}}
+\pgfpathcurveto{\pgfpoint{12.321777\du}{7.857354\du}}{\pgfpoint{12.290682\du}{8.067195\du}}{\pgfpoint{12.170215\du}{8.156568\du}}
+\pgfusepath{fill}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetdash{}{0pt}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+}
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (7.079046\du,0.817536\du)--(1.881811\du,8.156568\du);
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetmiterjoin
+\pgfsetbuttcap
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+\pgfpathmoveto{\pgfpoint{7.079046\du}{0.817536\du}}
+\pgfpathcurveto{\pgfpoint{7.201459\du}{0.904224\du}}{\pgfpoint{7.237184\du}{1.113326\du}}{\pgfpoint{7.150495\du}{1.235740\du}}
+\pgfpathcurveto{\pgfpoint{7.063807\du}{1.358153\du}}{\pgfpoint{6.854704\du}{1.393878\du}}{\pgfpoint{6.732291\du}{1.307189\du}}
+\pgfpathcurveto{\pgfpoint{6.609877\du}{1.220501\du}}{\pgfpoint{6.574153\du}{1.011398\du}}{\pgfpoint{6.660841\du}{0.888985\du}}
+\pgfpathcurveto{\pgfpoint{6.747530\du}{0.766571\du}}{\pgfpoint{6.956632\du}{0.730847\du}}{\pgfpoint{7.079046\du}{0.817536\du}}
+\pgfusepath{fill}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetmiterjoin
+\pgfsetbuttcap
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+\pgfpathmoveto{\pgfpoint{1.881811\du}{8.156568\du}}
+\pgfpathcurveto{\pgfpoint{1.759398\du}{8.069880\du}}{\pgfpoint{1.723673\du}{7.860777\du}}{\pgfpoint{1.810362\du}{7.738364\du}}
+\pgfpathcurveto{\pgfpoint{1.897050\du}{7.615950\du}}{\pgfpoint{2.106153\du}{7.580226\du}}{\pgfpoint{2.228566\du}{7.666914\du}}
+\pgfpathcurveto{\pgfpoint{2.350980\du}{7.753603\du}}{\pgfpoint{2.386704\du}{7.962705\du}}{\pgfpoint{2.300016\du}{8.085119\du}}
+\pgfpathcurveto{\pgfpoint{2.213327\du}{8.207532\du}}{\pgfpoint{2.004225\du}{8.243257\du}}{\pgfpoint{1.881811\du}{8.156568\du}}
+\pgfusepath{fill}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetdash{}{0pt}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+}
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (12.240925\du,7.767660\du)--(7.609376\du,14.449819\du);
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetmiterjoin
+\pgfsetbuttcap
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+\pgfpathmoveto{\pgfpoint{12.240925\du}{7.767660\du}}
+\pgfpathcurveto{\pgfpoint{12.364207\du}{7.853109\du}}{\pgfpoint{12.402040\du}{8.061840\du}}{\pgfpoint{12.316590\du}{8.185122\du}}
+\pgfpathcurveto{\pgfpoint{12.231141\du}{8.308404\du}}{\pgfpoint{12.022410\du}{8.346236\du}}{\pgfpoint{11.899128\du}{8.260787\du}}
+\pgfpathcurveto{\pgfpoint{11.775846\du}{8.175338\du}}{\pgfpoint{11.738014\du}{7.966606\du}}{\pgfpoint{11.823463\du}{7.843325\du}}
+\pgfpathcurveto{\pgfpoint{11.908912\du}{7.720043\du}}{\pgfpoint{12.117644\du}{7.682210\du}}{\pgfpoint{12.240925\du}{7.767660\du}}
+\pgfusepath{fill}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetmiterjoin
+\pgfsetbuttcap
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (7.688737\du,13.896464\du)--(8.099677\du,14.181295\du);
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetdash{}{0pt}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+}
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (1.881811\du,7.696949\du)--(6.265873\du,14.449819\du);
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetmiterjoin
+\pgfsetbuttcap
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+\pgfpathmoveto{\pgfpoint{1.881811\du}{7.696949\du}}
+\pgfpathcurveto{\pgfpoint{2.007623\du}{7.615270\du}}{\pgfpoint{2.215113\du}{7.659403\du}}{\pgfpoint{2.296792\du}{7.785215\du}}
+\pgfpathcurveto{\pgfpoint{2.378471\du}{7.911026\du}}{\pgfpoint{2.334338\du}{8.118517\du}}{\pgfpoint{2.208526\du}{8.200196\du}}
+\pgfpathcurveto{\pgfpoint{2.082715\du}{8.281874\du}}{\pgfpoint{1.875224\du}{8.237741\du}}{\pgfpoint{1.793545\du}{8.111930\du}}
+\pgfpathcurveto{\pgfpoint{1.711866\du}{7.986118\du}}{\pgfpoint{1.755999\du}{7.778628\du}}{\pgfpoint{1.881811\du}{7.696949\du}}
+\pgfusepath{fill}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetmiterjoin
+\pgfsetbuttcap
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (5.783924\du,14.166578\du)--(6.203297\du,13.894315\du);
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetdash{}{0pt}
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\pgfpathmoveto{\pgfpoint{6.902235\du}{2.535055\du}}
+\pgfpatharc{113}{6}{0.515388\du/0.515388\du}
+\pgfusepath{stroke}
+}
+\end{tikzpicture}
+
+%\newpage	% Page 27 Арлинский cover-ebook
+%\newpage	% Page 28-63 Арлинский beamer ebook
+%\newpage	% Page 64 animation derivative
+
+\end{document}

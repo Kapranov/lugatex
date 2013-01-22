@@ -1,0 +1,367 @@
+\newpage	%--- page 6
+\disableTemplate{LugatexLogo}
+\disableTemplate{susebgcard}
+
+\tikz \node[chamfered rectangle, white, fill=red, double=red, draw, very thick] { \bf ВНИМАНИЕ!};
+\tikz \node[cloud callout, cloud puffs=15, aspect=2.5, cloud puff arc=120, shading=ball, text=white] {\bf Luga\TeX};
+\tikz \node[cloud callout, cloud puffs=15, aspect=2.5, cloud puff arc=120,
+	shading=ball, text=white, callout pointer segments=3, thick] {\bf Luga\TeX};\\[15pt]
+\tikz \node[ellipse callout, cloud puffs=15, aspect=2.5, cloud puff arc=120, shading=ball, text=white] {\bf Luga\TeX};
+\tikz \node[rectangle callout, cloud puffs=15, aspect=2.5, cloud puff arc=120, shading=ball, text=white] {\bf Luga\TeX};
+
+\vglue 10pt
+
+\tikz \shade (0,0) rectangle (2,1) (3,0.5) circle (.5cm);
+\begin{tikzpicture}[rounded corners,ultra thick]
+	\shade[top color=yellow,bottom color=black] (0,0) rectangle +(2,1);
+	\shade[left color=yellow,right color=black] (3,0) rectangle +(2,1);
+	\shadedraw[inner color=yellow,outer color=black,draw=yellow] (6,0) rectangle +(2,1);
+	\shade[ball color=green] (9,.5) circle (.5cm);
+\end{tikzpicture}
+
+\begin{tikzpicture}[even odd rule,rounded corners=2pt,x=10pt,y=10pt]
+	        \filldraw[fill=light-blue] (0,0) rectangle (1,1)
+		[xshift=5pt,yshift=5pt] (0,0) rectangle (1,1)
+		[rotate=30] (-1,-1) rectangle (2,2);
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\draw (0,0) rectangle (2,2);
+	\draw (0.5,0.5) node [fill=light-blue]
+	{Text at \verb!node 1!}
+	-- (1.5,1.5) node {Text at \verb!node 2!};
+\end{tikzpicture}
+
+\begin{tikzpicture}[
+	nonterminal/.style={
+	% The shape:
+	rectangle,
+	% The size:
+	minimum size=6mm,
+	% The border:
+	very thick,
+	draw=red!50!black!50, % 50% red and 50% black,
+	% and that mixed with 50% white
+	% The filling:
+	top color=white, % a shading that is white at the top\ldots
+	bottom color=red!50!black!20, % and something else at the bottom
+	% Font
+	font=\itshape
+	}]
+	\node [nonterminal] {unsigned integer};
+\end{tikzpicture}
+
+\newpage
+
+\begin{tikzpicture}[
+	mindmap,
+	concept color=black,
+	root concept/.append style={
+	concept,
+	circular drop shadow,
+	fill=white, line width=1ex,
+	text=black, font=\large\scshape}
+	]
+	\clip (-1.5,-5) rectangle ++(4,10);
+	\node [root concept] (Computational Complexity) {Computational Complexity};
+	\begin{pgfonlayer}{background}
+		\clip (-1.5,-5) rectangle ++(4,10);
+		\colorlet{upperleft}{green!50!black!25}
+		\colorlet{upperright}{orange!25}
+		\colorlet{lowerleft}{red!25}
+		\colorlet{lowerright}{blue!25}
+		% The large rectangles:
+		\fill [upperleft] (Computational Complexity) rectangle ++(-20,20);
+		\fill [upperright] (Computational Complexity) rectangle ++(20,20);
+		\fill [lowerleft] (Computational Complexity) rectangle ++(-20,-20);
+		\fill [lowerright] (Computational Complexity) rectangle ++(20,-20);
+		% The shadings:
+		\shade [left color=upperleft,right color=upperright]
+		([xshift=-1cm]Computational Complexity) rectangle ++(2,20);
+		\shade [left color=lowerleft,right color=lowerright]
+		([xshift=-1cm]Computational Complexity) rectangle ++(2,-20);
+		\shade [top color=upperleft,bottom color=lowerleft]
+		([yshift=-1cm]Computational Complexity) rectangle ++(-20,2);
+		\shade [top color=upperright,bottom color=lowerright]
+		([yshift=-1cm]Computational Complexity) rectangle ++(20,2);
+	\end{pgfonlayer}
+\end{tikzpicture}
+
+\newpage
+
+\tiny
+\begin{tikzpicture}
+	\calendar [day list downward,
+	month text=\%mt\ \%y0,
+	month yshift=3.5em,
+	name=cal,
+	dates=2009-10-01 to 2009-11-01]
+	if (weekend)
+	[black!25]
+	if (day of month=1) {
+	\node at (0pt,1.5em) [anchor=base west] {\small\tikzmonthtext};
+	};
+\end{tikzpicture}
+
+\newpage
+
+\begin{tikzpicture}[state/.style={fill=red,draw=none,circular drop shadow,text=white}]
+	\node[state] {$\Omega$};
+\end{tikzpicture}
+
+\begin{tikzpicture}[outline/.style={draw=#1,thick,fill=#1!50},
+	outline/.default=black]
+	\node [outline] at (0,1) {default};
+	\node [outline=blue] at (0,0) {blue};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	[fill=blue, % only sets the color
+	every path/.style={draw}] % all paths are drawn
+	\fill (0,0) rectangle +(1,1);
+	\shade (2,0) rectangle +(1,1);
+\end{tikzpicture}
+
+\tikz \fill[color=red!20] (0,0) circle (1ex);
+\tikz \fill[red!20] (0,0) circle (1ex);
+
+\tikz \shadedraw [shading=axis] (0,0) rectangle (1,1);
+\tikz \shadedraw [shading=radial] (0,0) rectangle (1,1);
+\tikz \shadedraw [shading=ball] (0,0) circle (.5cm);
+
+\tikz \shadedraw [left color=red,right color=blue]
+(0,0) rectangle (1,1);
+
+\tikz \shadedraw [shading=axis,shading angle=90] (0,0) rectangle (1,1);
+
+\newpage
+
+\begin{tikzpicture}
+	[
+	% Define an interesting style
+	button/.style={
+	% First preaction: Fuzzy shadow
+	preaction={fill=black,path fading=circle with fuzzy edge 20 percent,
+	opacity=.5,transform canvas={xshift=1mm,yshift=-1mm}},
+	% Second preaction: Background pattern
+	preaction={pattern=#1,
+	path fading=circle with fuzzy edge 15 percent},
+	% Third preaction: Make background shiny
+	preaction={top color=white,
+	bottom color=black!50,
+	shading angle=45,
+	path fading=circle with fuzzy edge 15 percent,
+	opacity=0.2},
+	% Fourth preaction: Make edge especially shiny
+	preaction={path fading=fuzzy ring 15 percent,
+	top color=black!5,
+	bottom color=black!80,
+	shading angle=45},
+	inner sep=2ex
+	},
+	button/.default=horizontal lines light blue,
+	circle
+	]
+	\draw [help lines] (0,0) grid (4,3);
+	\node [button] at (2.2,1) {\Huge Big};
+	\node [button=crosshatch dots light steel blue,
+	text=white] at (1,1.5) {Small};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\draw[help lines] (0,0) grid (3,2);
+	\draw
+	[postaction={path fading=south,fill=white}]
+	[postaction={path fading=south,fading angle=45,fill=blue,opacity=.5}]
+	[left color=black,right color=red,draw=white,line width=2mm]
+	(0,0) rectangle (1,2)
+	(1,2) circle (5mm);
+\end{tikzpicture}
+
+%\begin{tikzpicture}
+%	\node [circular drop shadow={shadow scale=1.05},minimum size=3.13cm,
+%	decorate, decoration=zigzag,
+%	fill=blue!20,draw,thick,circle] {Hello!};
+%\end{tikzpicture}
+%
+%\begin{tikzpicture}
+%	\draw (0,0) rectangle (3,2);
+%	\draw [red, decorate, decoration=zigzag]
+%	(0,0) rectangle (3,2);
+%\end{tikzpicture}
+
+% Define box and box title style
+% Define box and box title style
+\tikzstyle{mybox} = [draw=red, fill=blue!20, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+\tikzstyle{fancytitle} =[fill=red, text=white]
+
+% Define box and box title style
+\tikzstyle{mybox} = [draw=red, fill=blue!20, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+    \tikzstyle{fancytitle} =[fill=red, text=white]
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+	\begin{minipage}{0.50\textwidth}
+		To calculate the horizontal position the kinematic differential
+		equations are needed:
+		\begin{align}
+			\dot{n} &= u\cos\psi -v\sin\psi \\
+			\dot{e} &= u\sin\psi + v\cos\psi
+		\end{align}
+		For small angles the following approximation can be used:
+		\begin{align}
+			\dot{n} &= u -v\delta_\psi \\
+			\dot{e} &= u\delta_\psi + v
+		\end{align}
+	\end{minipage}
+	};
+
+	\node[fancytitle, right=10pt] at (box.north west) {A fancy title};
+	\node[fancytitle, rounded corners] at (box.east) {$\clubsuit$};
+\end{tikzpicture}%
+%
+
+\begin{tikzpicture}[remember picture,overlay]
+	\node [rotate=60,scale=10,text opacity=0.2]
+	at (current page.center) {Example};
+\end{tikzpicture}
+
+\begin{tikzpicture}[remember picture,overlay]
+\node [xshift=1cm,yshift=1cm] at (current page.south west)
+	[text width=7cm,fill=red!20,rounded corners,above right]
+{
+	This is an absolutely positioned text in the
+	lower left corner. No shipout-hackery is used.
+};
+\end{tikzpicture}
+
+\begin{tikzpicture}[remember picture,overlay]
+\draw [line width=1mm,opacity=.25]
+(current page.center) circle (3cm);
+\end{tikzpicture}
+
+\pgfmathsetseed{1}
+\foreach \col in {black,red,green,blue}
+{
+\begin{tikzpicture}[x=10pt,y=10pt,ultra thick,baseline,line cap=round]
+	\coordinate (current point) at (0,0);
+	\coordinate (old velocity) at (0,0);
+	\coordinate (new velocity) at (rand,rand);
+	\foreach \i in {0,1,...,100}
+	{
+	\draw[\col!\i] (current point)
+	.. controls ++([scale=-1]old velocity) and
+	++(new velocity) .. ++(rand,rand)
+	coordinate (current point);
+	\coordinate (old velocity) at (new velocity);
+	\coordinate (new velocity) at (rand,rand);
+	}
+\end{tikzpicture}
+}
+
+%%%---> Automatically counting table rows
+%Declare the Counter, then initialise it.
+%\newcounter{rownum}
+%\setcounter{rownum}{0}
+% Table
+%\begin{table}[htbp]
+%	\caption{Table Caption}
+%	\begin{center}
+%		\begin{tabular}{|c||l|l|}
+%			\hline
+%			\textbf{\#} & \textbf{Column1} & \textbf{Column2} \\ \hline
+%			\hline
+%			%Increment then display the counter value
+%			\addtocounter{rownum}{1}\arabic{rownum}. & Row1Cell2 &
+%			Row1Cell3 \\ \hline
+%			\addtocounter{rownum}{1}\arabic{rownum}. & Row2Cell2 &
+%			Row2Cell3 \\ \hline
+%			\addtocounter{rownum}{1}\arabic{rownum}. & Row3Cell2 &
+%			Row3Cell3 \\ \hline
+%		\end{tabular}
+%	\end{center}
+%	\label{tablelabel}
+%\end{table}%
+%%%---
+%%%--- \documentclass[a4paper,10pt]{article}
+%%%--- \usepackage{array}
+%%%--- \newcounter{rowno}
+%%%--- \setcounter{rowno}{0}
+%%%--- \begin{document}
+%%%--- \begin{tabular}{>{\stepcounter{rowno}\therowno.}cl}
+%%%--- \multicolumn{1}{r}{No.} & text \\\hline
+%%%--- & first  \\
+%%%--- & second \\
+%%%--- & third  \\
+%%%--- & fourth
+%%%--- \end{tabular}
+%%%--- \end{document}
+
+%%%--->	
+%\documentclass{beamer}
+%\usetheme{default}
+%\usepackage{amsmath}
+%\usepackage{tabularx}
+%\usepackage{booktabs}
+%\usepackage{colortbl}
+%\usepackage{tikz}
+%\usetikzlibrary{calc}
+%\pgfdeclarelayer{background}
+%\pgfdeclarelayer{foreground}
+%\pgfsetlayers{background,main,foreground}
+%\setbeamertemplate{background canvas}[vertical shading]%
+%  [top=blue!1,bottom=blue!30]
+%\setbeamertemplate{navigation symbols}{}
+%\newcommand*\up{\textcolor{green}{%
+%\ensuremath{\blacktriangle}}}
+%\newcommand*\down{\textcolor{red}{%
+%\ensuremath{\blacktriangledown}}}
+%\newcommand*\const{\textcolor{darkgray}%
+%	{\textbf{--}}}
+%\begin{document}
+%\begin{frame}[bg=lightgray]
+%\textbf{\Large Linux distribution ranking, 26th August 2009}
+%\begin{center}
+%\begin{tikzpicture}
+%\node (tbl) {
+%\begin{tabularx}{.6\textwidth}{cXrcc}
+%\arrayrulecolor{purple}
+%\textbf{Rank} & \textbf{Distribution} &
+%\textbf{Hits} & \\
+%1 & Ubuntu\rule{0pt}{2.5ex}  &  2114 &
+%\down \\
+%\midrule
+%2 & Fedora & 1451 & \up \\
+%\midrule
+%3 & Mint & 1297 & \const \\
+%\midrule
+%4 & OpenSUSE & 1228 & \up \\
+%\midrule
+%5 & Debian & 910 & \down \\
+%\midrule
+%6 & Mandriva & 907 & \up \\
+%\midrule
+%7 & PCLinuxOS & 764 & \up \\
+%\midrule
+%8 & Puppy & 738 & \up \\
+%\midrule
+%9 & Sabayon & 671 & \up \\
+%\midrule
+%10 & Arch & 625 & \down \\[0.5ex]
+%\end{tabularx}};
+%\begin{pgfonlayer}{background}
+%\draw[rounded corners,top color=red,bottom color=black, draw=white]
+%	($(tbl.north west)+(0.14,0)$) rectangle ($(tbl.north east)-(0.13,0.9)$);
+%\draw[rounded corners,top color=white,bottom color=black, middle color=red,draw=blue!20]
+%	($(tbl.south west) +(0.12,0.5)$) rectangle ($(tbl.south east)-(0.12,0)$);
+%\draw[top color=blue!1,bottom color=blue!20,draw=white]
+%	($(tbl.north east)-(0.13,0.6)$) rectangle ($(tbl.south west)+(0.13,0.2)$);
+%\end{pgfonlayer}
+%\end{tikzpicture}
+%\end{center}
+%\small
+%Data by DistroWatch.com, spanning over the last 6 months, hits per day.
+%\end{frame}
+%\end{document}

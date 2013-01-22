@@ -1,0 +1,52 @@
+%\documentclass[english,russian,landscape]{article}
+\documentclass[english,russian,legalpaper]{article}
+\usepackage{ucs}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{ifthen,fullpage}
+\usepackage{pstricks}
+\usepackage{pst-blur}
+\usepackage{multido}
+
+\usepackage{fullpage}
+
+\pagestyle{empty}
+
+\makeatletter
+
+\def\pstCPU{\pst@object{pstCPU}}
+\def\pstCPU@i(#1)#2{{% #1: lower left #2: text
+
+\psset{framearc=0.2,linecolor=gray,fillcolor=blue,fillstyle=solid}%default
+
+\begin@ClosedObj
+\rput[lb](#1){%
+\psframe(2.4,0.8)
+%{ \psset{shadow=false}
+%\multirput[lb](0,0)(0,0.3){5}{\psline[linewidth=1.8pt](-0.6,0.2)(4,0.2)}}
+%\multirput[lb](0,0)(0,0.3){5}{}}
+\psframe[shadow=false](2.4,0.8)
+%\rput(1.8,0.5){\footnotesize\bfseries\textsf{#2}}}
+\rput(1.3,0.4){\tiny\bfseries\textsf{#2}}}
+\end@ClosedObj}%
+\ignorespaces%
+}
+\makeatother
+
+\begin{document}
+\noindent
+\begin{pspicture}(2,0)(15,3)
+%	\multido{\rA=0+2,\iB=0+1}{2}{\pstCPU[fillcolor=red!50](\rA,2){-\iB}}
+	\psset{shadow=true,blur=true,shadowsize=7pt}
+	\pstCPU[fillcolor=blue!20,blurradius=1pt,linecolor=black](0,0){К концу}
+	\pstCPU[fillcolor=blue!20,blurradius=1pt,linecolor=black](2.8,0){Назад}
+	\pstCPU[fillcolor=blue!20,blurradius=1pt,linecolor=black](5.6,0){Предыдущий}
+	\pstCPU[fillcolor=blue!20,blurradius=1pt,linecolor=black](8.4,0){Следующий}
+	\pstCPU[fillcolor=blue!20,blurradius=1pt,linecolor=black](11.2,0){Вперед}
+	\pstCPU[fillcolor=blue!20,blurradius=1pt,linecolor=black](14,0){К началу}
+	\pstCPU[fillcolor=blue!20,blurradius=1pt,linecolor=black](16.8,0){Полный экран}
+	\pstCPU[fillcolor=blue!20,blurradius=1pt,linecolor=black](19.6,0){Выход}
+%	\pstCPU[linecolor=black,blurradius=5pt](2,0){-XX}
+\end{pspicture}
+\end{document}

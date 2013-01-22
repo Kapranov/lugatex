@@ -1,0 +1,1033 @@
+%------------------------ kapranov 08:22:2009 ----------------------------
+%--- AcroTEX supports three ways of producing a PDF file:
+%--- (1) Adobe Acrobat Distiller (version 5.0 or higher required);
+%--- (2) pdftex; 
+%--- (3) dvipdfm.
+%--- In the case of (1), you probably use dvips to create a postscript
+%--- file before distilling. Some users have tried to use GhostScript
+%--- to produce a PDF file from AcroTEX; this will not work!
+%--- (You will get the PDF file, but not much functionality.)
+%--- Please contactme dpstory@acrotex.net should you encounter any
+%--- problems, or have suggestions to make.
+\documentclass[english,russian]{article}
+%\usepackage[math]{pscyr}
+\usepackage{pscyr}
+\usepackage{ucs}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[russian]{babel}
+%%%--- \usepackage[screen,panelleft,chocolate]{pdfscreen}
+%%%---> dvipsone, dvips, pdftex, or dvipdfm
+\usepackage[pdftex,tight,designv,nodirectory,russian,usetemplates,%
+unicode,useui,pro,xcolor,usenames,dvipsnames,x11names]{web}
+%%%---> This package don't work together with package fancytooltips ------
+%%%---	\usepackage[driver=pdftex,uselayers,eforms]{aeb_pro}
+%%%---	\usepackage[pdftex,unicode,pro]{eforms}
+%%%---	\usepackage[pdftex,pro,russian]{exerquiz}
+%%%---	\usepackage[spnavi]{apb}
+%%%---	\usepackage{eq2db}
+%%%---	\usepackage[pdftex,russian]{exerquiz}
+%%%-----------------------------------------------------------------------
+%%%---	\usepackage[ImplMulti]{dljslib}
+%%%---	\usepackage{aebxmp}
+%%%---	\usepackage{graphicxbox}
+%%%---	\usepackage{graphicxsp}
+%%%---	\usepackage{opacity_pro}
+%%%---	\usepackage{embedfile}[2009/09/25]
+%%%---	\usepackage{embedfile}
+%%%---	\usepackage{rmannot}
+%%%---	\usepackage{transparent}
+%%%---	\usepackage[svgnames,rgb]{xcolor}
+%%%-----------------------------------------------------------------------
+\usepackage[pdftex,execJS]{insdljs}
+\usepackage{aeb_tilebg}
+\usepackage[pdftex]{attachfile2}
+\usepackage{geometry}
+\usepackage{amssymb,latexsym,amsmath}
+\usepackage{eucal,eufrak,mathrsfs}
+\usepackage{tensor}
+\usepackage{mathdots}
+\usepackage{tipa}
+\usepackage{texnames}
+\usepackage{textcomp}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{pgf,pgfshade}
+\usepackage{xxcolor}
+%%%---> don't work with package exam
+%%% \usepackage{microtype}
+\usepackage{lipsum}
+\usepackage{marginnote}
+\usepackage[pdftex]{graphicx}
+\usepackage[filename=tikz,mouseover]{fancytooltips}
+\usepackage{pdfcomment}
+\usepackage{pdfpages}
+\usepackage{cooltooltips}
+\usepackage{ifthen}
+\usepackage{animate}
+\usepackage{ocg}
+\usepackage[colorinlistoftodos, shadow]{todonotes}
+\usepackage[absolute,overlay]{textpos}
+\usepackage[3D,final]{movie15}
+\usepackage{pstricks}
+\usepackage{pst-blur}
+\usepackage{tikz}
+
+\geometry{left=5mm}		% левое поле
+\geometry{right=5mm}	% правое поле
+\geometry{top=15mm}		% верхнее поле
+\geometry{bottom=5mm}	% нижнее поле
+
+\usetikzlibrary{arrows,snakes,shapes,backgrounds}
+\usetikzlibrary{mindmap,trees,shadows,calendar}
+\usetikzlibrary{patterns}
+\usetikzlibrary{trees}
+\usetikzlibrary{calc,through}
+
+\definecolor{grayfifteen}{gray}{.85}
+\definecolor{logoblue}{rgb}{0,0,0.267}
+\definecolor{monred}{rgb}{0.8 0.9 1} 
+ 
+%%%--- \template[hiresbb]{./img/news_bgr}
+%%%--- \template{./img/lugatex_bg_12}
+
+%%%---> Don't work with package fancytooltips
+%%%---> \everyeqTextField{\BG{1 .973 .863}}
+%%%---> \everysqRadioButton{\BG{1 .973 .863}}
+%%%---> \everyRespBoxMath{\rectW{1.8in}\textSize{0}}
+%%%---> \everyRespBoxTxt{\rectW{1.8in}\textSize{0}}
+%%%---> 
+%%%---> \sqTurnOffAlerts\sqCorrections
+
+\makeatletter
+\def\eq@textFont{/TiRo}
+%%%--->	Sticky Notes PDF Annotations -------------------------------------
+%%%--- \newcommand{\notes}[1]{%
+%%%---     \pdfstringdef\@tempa{#1}%
+%%%---     %\marginpar{%
+%%%---     \leavevmode%
+%%%---     \pdfannot width 12cm height \baselineskip depth 0pt{
+%%%---             /Subtype /Text
+%%%---             /Contents (\@tempa)
+%%%---         }%
+%%%---     %}% 
+%%%---     \let\@tempa\relax%
+%%%--- }%
+%%%--- 
+%%%--- \newcommand{\covernotes}[1]{%
+%%%---     \pdfstringdef\@tempa{#1}%
+%%%---     %\marginpar{%
+%%%---     \leavevmode%
+%%%---     \pdfannot width 12cm height \baselineskip depth 0pt{
+%%%---             /Subtype /Text
+%%%--- 			/C [0.2 0.6 0.6]
+%%%--- 			/Open true
+%%%---         }%
+%%%---     %}% 
+%%%---     \let\@tempa\relax%
+%%%--- }%
+%%%--- 
+%%%--- \newcommand{\pdftexta}[2][Comment]{%
+%%%--- \def\pa@notiz{}%
+%%%--- \pdfstringdef\pa@notiz{#2}
+%%%---  \pdfannot width 0pt height 0.66\baselineskip depth 0pt
+%%%---  {
+%%%--- ~ /Subtype /Text
+%%%--- ~ /C [0.2 0.6 0.6]
+%%%---  /T (Josef Kleber)
+%%%---  /Subj (Überschrift)
+%%%---  /Name (#1)
+%%%--- ~ /Contents (\pa@notiz)
+%%%--- ~ /Open false
+%%%--- ~ }
+%%%--- ~ \hspace{0.6cm}
+%%%--- }
+%%%--- 
+%%%--- \newcommand{\pdfmara}[2][Comment]{%
+%%%--- \def\pa@notiz{}%
+%%%--- \pdfstringdef\pa@notiz{#2}%
+%%%--- \marginnote{%
+%%%--- ~ \pdfannot width 0pt height \baselineskip depth 0pt%
+%%%--- ~ {%
+%%%--- ~ /Subtype /Text%
+%%%--- ~ %/C [0.5 0.8 0.4]%
+%%%--- /C [0.5 0.8 0.4 0.3]%
+%%%--- /T (Josef Kleber)
+%%%--- /Subj (Überschrift)%
+%%%--- /Name (#1)%
+%%%--- ~ /Contents (\pa@notiz)%
+%%%--- ~ /Open false%
+%%%--- ~ }%
+%%%--- ~ }%
+%%%--- }%
+%%%-----------------------------------------------------------------------
+%%%---> Video Annotations ------------------------------------------------
+%%%--- \newcommand{\video}[5]{%
+%%%--- \vspace{#3}\hspace{#2}{\pdfannot width #4 height #5 depth 0cm {%
+%%%--- /Subtype /Movie /C [1 0 0] /Border [0 0 3] /Movie
+%%%--- <> }}} 
+%%%-----------------------------------------------------------------------
+%%%---> PDF Navigational panel -------------------------------------------
+%%%--- \def\NavigationPanel{\begingroup\fboxsep2pt\fboxrule=1pt%
+%%%---      \parbox[b][.6cm][b]{.95\panelwidth}{\hfil%
+%%%---      \Acrobatmenu{FirstPage}{\ifnum\thepage=1%
+%%%---                   {\color{buttondisable}\First}\else
+%%%---                   {\color{button}\First}\fi}\hfil%
+%%%---      \Acrobatmenu{PrevPage}{\ifnum\thepage=1%
+%%%---                   {\color{buttondisable}\Prev}\else
+%%%---                   {\color{button}\Prev}\fi}\hfil%
+%%%---      \Acrobatmenu{NextPage}{\ifnum\thepage=\number\ScreenLastPage%
+%%%---                   {\color{buttondisable}\Next}\else
+%%%---                   {\color{button}\Next}\fi}\hfil
+%%%---      \Acrobatmenu{LastPage}{\ifnum\thepage=\number\ScreenLastPage%
+%%%---                   {\color{buttondisable}\Last}\else
+%%%---                   {\color{button}\Last}\fi}\hfil%
+%%%---      \Acrobatmenu{GoBack}{\color{button}\Back}\hfil%
+%%%---      \Acrobatmenu{GoForward}{\color{button}\Forw}\hfil%
+%%%---      \Acrobatmenu{Close}{\color{button}\Close}}%
+%%%---      \endgroup}
+%%%--- 
+%%%--- \cfoot{\NavigationBar}
+%%%--- \def\NavigationBar{{\Large
+%%%---   \Acrobatmenu{FontsInfo}{\reflectbox{\ding{227}}}
+%%%---   \Acrobatmenu{NextPage}{\ding{227}}
+%%%---   \Acrobatmenu{FirstPage}{\reflectbox{\ding{224}}}
+%%%---   \Acrobatmenu{LastPage}{\ding{224}}
+%%%---   \Acrobatmenu{GoBack}{\reflectbox{\ding{249}}}
+%%%---   \Acrobatmenu{Quit}{\ding{54}}%
+%%%--- }}
+%%%--- \PANELWIdth=1.3in
+%%%--- \def\panel{\colorbox{panelbackground}
+%%%--- {\begin{minipage}[t][\paperheight][b]{\panelwidth}
+%%%--- \centering\null\vspace*{12pt}
+%%%--- \includegraphics[width=.75in]{univ}\par\vfill
+%%%--- \href{\@urlid}{\addButton{.85in}{\@Panelhomepagename}}\par\vfill
+%%%--- \Acrobatmenu{FirstPage}{\addButton{.85in}
+%%%--- {\FBlack\@Paneltitlepagename}}\par\vfill
+%%%--- \Acrobatmenu{FirstPage}{\addButton{.2in}
+%%%--- {\FBlack\scalebox{.8}[1.4]{\btl\btl}}}\hspace{-3pt}
+%%%--- \Acrobatmenu{PrevPage}{\addButton{.2in}
+%%%--- {\FBlack\scalebox{.8}[1.4]{\btl}}}\hspace{-3pt}
+%%%--- \Acrobatmenu{NextPage}{\addButton{.2in}
+%%%--- {\LBlack\scalebox{.8}[1.4]{\rtl}}}\hspace{-3pt}
+%%%--- \Acrobatmenu{LastPage}{\addButton{.2in}
+%%%--- {\LBlack\scalebox{.8}[1.4]{\rtl\rtl}}}\par\vfill
+%%%--- \Acrobatmenu{GoBack}{\addButton{.85in}
+%%%--- {\@Panelgobackname}}\par\vfill
+%%%--- \Acrobatmenu{FullScreen}{\addButton{.85in}{Full Screen}}\par\vfill
+%%%--- \Acrobatmenu{Close}{\addButton{.85in}{\@Panelclosename}}\par\vfill
+%%%--- \Acrobatmenu{Quit}{\addButton{.85in}{\@Panelquitname}}\par
+%%%--- \null\vspace*{12pt}
+%%%--- \end{minipage}}}
+\makeatother
+%%%---> Acroread Panel Navigational --------------------------------------
+%%%--- \font\CVxx=contnav at 15pt
+%%%--- \fboxrule1pt\fboxsep2pt
+%%%--- \def\Prev{\fbox{\hbox  to .5cm{\hfil\scalebox{.8}[1.2]{%
+%%%--- 	\CVxx\char1}\hfil}}}
+%%%--- \def\Next{\fbox{\hbox  to .5cm{\hfil\scalebox{.8}[1.2]{%
+%%%--- 	\CVxx\char2}\hfil}}}
+%%%--- \def\NNext{\fbox{\hbox to .5cm{\hfil\scalebox{.8}[1.2]{%
+%%%--- 	Zoom~\thepsfig}\hfil}}}
+%%%--- \def\First{\fbox{\hbox to .5cm{\hfil\scalebox{.8}[1.2]{%
+%%%--- 	\CVxx\char3}\hfil}}}
+%%%--- \def\Last{\fbox{\hbox  to .5cm{\hfil\scalebox{.8}[1.2]{%
+%%%--- 	\CVxx\char4}\hfil}}}
+%%%--- \def\Back{\fbox{\hbox  to .5cm{\hfil\scalebox{.8}[1.2]{%
+%%%--- 	\CVxx\char5}\hfil}}}
+%%%--- \def\Forw{\fbox{\hbox  to .5cm{\hfil\scalebox{.8}[1.2]{%
+%%%--- 	\CVxx\char6}\hfil}}}
+%%%--- \def\Close{\fbox{\hbox to .5cm{\hfil\scalebox{.8}[1.2]{%
+%%%--- 	\CVxx\char9}\hfil}}}
+%%%-----------------------------------------------------------------------
+%%%--- \buildpanel
+%%%--- {%
+%%%--- \href{http://faculty.owc.edu/dpstory/}{%
+%%%--- \includegraphics[scale=.25]{./img/lugatex_logo_02}}
+%%%--- \par\vspace{\stretch{1}}
+%%%--- \href{http://www.math.uakron.edu/~dpstory/webeq.html}{%
+%%%--- \rotatebox{-90}{\AEBLogo}}
+%%%--- \par\vspace{\stretch{1}}
+%%%--- \panelNaviGroup
+%%%--- }
+%%%-----------------------------------------------------------------------
+%%%---> 1
+\newcommand\LugaCover
+{%
+\ifnum\arabic{page}=1\relax
+	\parbox[b][\paperheight][c]{\textscreenwidth}%
+	%
+	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+		./img/lugatex_bg_00}}%
+	\fi
+}
+%%%--- \AddToTemplate{LugaCover}
+%%%---> 2
+\newcommand\LugaNotes
+{%
+	\parbox[b][\paperheight][c]{\textscreenwidth}%
+	%
+	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+		./img/lugatex_bg_06}}%
+}
+%%%--- \AddToTemplate{LugaNotes}
+%%%---> 3
+\newcommand\Lugalibrary
+{%	
+	\parbox[b][\paperheight][c]{\textscreenwidth}%
+	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+		./img/lugatex_bg_04}}%
+}
+%%%--- \AddToTemplate{Lugalibrary}
+%%%---> 4
+\newcommand\Lugatitle
+{%	
+	\parbox[b][\paperheight][c]{\textscreenwidth}%
+	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+		./img/lugatex_bg_03}}%
+}
+%%%--- \AddToTemplate{Lugatitle}
+%%%---> 5
+\newcommand\Lugaart
+{%	
+	\parbox[b][\paperheight][c]{\textscreenwidth}%
+	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+		./img/lugatex_bg_05}}%
+}
+%%%--- \AddToTemplate{Lugaart}
+%%%---> 6
+\newcommand\Lugacontents
+{%	
+	\parbox[b][\paperheight][c]{\textscreenwidth}%
+	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+		./img/lugatex_bg_07}}%
+}
+%%%--- \AddToTemplate{Lugacontents}
+%%%---> 7
+\newcommand\Lugamechanicscover
+{%
+	\parbox[b][\paperheight][c]{\textscreenwidth}%
+	%
+	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+		./img/lugatex_math_logo_03}}%
+}
+%%%--- \AddToTemplate{Lugamechanicscover}
+%%%---> 8
+\newcommand\Lugamathbg
+{%
+	\parbox[b][\paperheight][c]{\textscreenwidth}%
+ 	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+ 		./img/lugatex_math_logo_06}}%
+}
+%%%--- \AddToTemplate{Lugamathbg}
+%%%---> 9
+\newcommand\Lugabgempty
+{%
+    \parbox[b][\paperheight][c]{\textscreenwidth}%
+        {\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+	        ./img/lugatex_bg_20}}%
+}
+%%%--- \AddToTemplate{Lugabgempty}
+%%%---> 10
+\newcommand\Lugamathtest
+{%
+    \parbox[b][\paperheight][c]{\textscreenwidth}%
+        {\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+	        ./img/lugatex_math_logo_20}}%
+}
+%%%--- \AddToTemplate{Lugamathtest}
+%%%---> 11
+\newcommand\Lugapdecover
+{%
+ 	\parbox[b][\paperheight][c]{\textscreenwidth}%
+ 	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+ 		./img/lugatex_math_logo_08}}%
+ }
+%%%--- \AddToTemplate{Lugapdecover}
+%%%---> 12
+\newcommand\Lugapdetest
+{%
+ 	\parbox[b][\paperheight][c]{\textscreenwidth}%
+ 	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+ 		./img/lugatex_bg_13}}%
+ }
+%%%--- \AddToTemplate{Lugapdetest}
+%%%---> 13
+\newcommand\Lugabgphunc
+{%
+ 	\parbox[b][\paperheight][c]{\textscreenwidth}%
+ 	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+ 		./img/lugatex_math_logo_15}}%
+ }
+%%%--- \AddToTemplate{Lugabgphunc}
+%%%---> 14
+\newcommand\Lugabgtask
+{%
+ 	\parbox[b][\paperheight][c]{\textscreenwidth}%
+ 	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+ 		./img/lugatex_bg_10}}%
+ }
+%%%--- \AddToTemplate{Lugabgtask}
+%%%---> 15
+\newcommand\Lugabgtest
+{%
+ 	\parbox[b][\paperheight][c]{\textscreenwidth}%
+ 	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+ 		./img/lugatex_bg_10}}%
+ }
+%%%--- \AddToTemplate{Lugabgtest}
+%%%---> 16
+\newcommand\Lugabgtestpde
+{%
+ 	\parbox[b][\paperheight][c]{\textscreenwidth}%
+ 	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+ 		./img/lugatex_bg_11}}%
+ }
+%%%--- \AddToTemplate{Lugabgtestpde}
+%%%---> 17
+\newcommand\Lugaphunctask
+{%
+ 	\parbox[b][\paperheight][c]{\textscreenwidth}%
+ 	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+ 		./img/lugatex_math_logo_25}}%
+ }
+%%%--- \AddToTemplate{Lugaphunctask}
+%%%---> 18
+ \newcommand\Lugaphunctest
+ {%
+ 	\parbox[b][\paperheight][c]{\textscreenwidth}%
+ 	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+ 		./img/lugatex_bg_12}}%
+ }
+%%%--- \AddToTemplate{Lugaphunctest}
+%%%---> 19
+ \newcommand\susebganim
+ {%
+ 	\parbox[b][\paperheight][c]{\textscreenwidth}%
+ 	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+ 		./img/suse_bg_35}}%
+ }
+%%%--- \AddToTemplate{susebganim}
+
+%%%---> 20
+ \newcommand\susebgcard
+ {%
+ 	\parbox[b][\paperheight][c]{\textscreenwidth}%
+ 	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+ 		./img/suse_bg_31}}%
+ }
+ %%%--- \AddToTemplate{susebgcard}
+%%%---> 21
+ \newcommand\librarybg
+ {%
+ 	\parbox[b][\paperheight][c]{\textscreenwidth}%
+ 	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+ 		./img/suse_bg_39}}%
+ }
+ %%%--- \AddToTemplate{librarybg}
+%%%----------------------------------------------------------------------- 
+%%%--- \AddToTemplate{Lugaphunctest}
+%%%--- 
+%%%--- \newcommand\Lugafoure
+%%%--- {%
+%%%--- \ifnum\arabic{page}=4\relax
+%%%--- 	\parbox[b][\paperheight][c]{\textscreenwidth}%
+%%%--- 	%
+%%%--- 	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+%%%--- 		./img/lugatex_bg_10}}%
+%%%--- 	\fi
+%%%--- }
+%%%--- \AddToTemplate{Lugafoure}
+%%%--- 
+%%%--- \newcommand\Lugafive
+%%%--- {%
+%%%--- \ifnum\arabic{page}=5\relax
+%%%--- 	\parbox[b][\paperheight][c]{\textscreenwidth}%
+%%%--- 	%
+%%%--- 	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+%%%--- 		./img/lugatex_math_logo_06}}%
+%%%--- 	\fi
+%%%--- }
+%%%--- \AddToTemplate{Lugafive}
+%%%--- 
+%%%--- \newcommand\Lugasix
+%%%--- {%
+%%%--- \ifnum\arabic{page}=6\relax
+%%%--- 	\parbox[b][\paperheight][c]{\textscreenwidth}%
+%%%--- 	%
+%%%--- 	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+%%%--- 		./img/lugatex_bg_06}}%
+%%%--- 	\fi
+%%%--- }
+%%%--- \AddToTemplate{Lugasix}
+%%%--- 
+%%%--- \newcommand\Lugaseven
+%%%--- {%
+%%%--- \ifnum\arabic{page}=7\relax
+%%%--- 	\parbox[b][\paperheight][c]{\textscreenwidth}%
+%%%--- 	%
+%%%--- 	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+%%%--- 		./IMG/LUGatex_math_logo_15}}%
+%%%--- 	\fi
+%%%--- }
+%%%--- \AddToTemplate{Lugaseven}
+%%%--- 
+%%%--- \newcommand\Lugaeigth
+%%%--- {%
+%%%--- \ifnum\arabic{page}=7\relax
+%%%--- 	\parbox[b][\paperheight][c]{\textscreenwidth}%
+%%%--- 	%
+%%%--- 	{\centering\includegraphics[width=\paperwidth,height=\paperheight]{%
+%%%--- 		./img/lugatex_bg_08}}%
+%%%--- 	\fi
+%%%--- }
+%%%--- \AddToTemplate{Lugaeight}
+%%%-----------------------------------------------------------------------
+\newcommand\LugatexLogo
+{%
+\put(5,292){\href{ftp://195.5.124.250/kapranov/}{%
+	\includegraphics[scale=0.38]{./img/lugatex_logo_02}}}%
+}
+%%%--- \AddToTemplate{LugatexLogo}
+\newcommand\Navigatorbarbg
+{%
+\put(109.7,285.5){\includegraphics[scale=0.51]{./adobe_navibar}}
+}
+%%%--- \AddToTemplate{Navigatorbarbg}
+%------------------------------ aebpro ----------------------------------- 
+\DeclareDocInfo
+{
+	title=LugaTeX Presentation,
+	author=Kapranov,
+	university=Donetch University,
+	email=lugatex@yahoo.com,
+	talkdate={June.\ 17, \the\year},
+	talksite=The Talking University,
+	subject=On the Theory of Latex,
+	keywords={LaTeX, PDF, Tikz, Python},
+	copyrightStatus=False,
+	copyrightNotice={Copyright O. G. Kapranov, \the\year},
+	copyrightInfoURL=http://www.lugatex.net
+}
+%%%------------------------------------------------------------------------
+%%%--->	\DeclareInitView
+%%%--->	{%
+%%%--->	layoutmag={mag=ActualSize,navitab=UseOutlines,%
+%%%--->	openatpage=1,pagelayout=SinglePage},
+%%%--->	windowoptions={fullscreen},
+%%%--->	uioptions={hidetoolbar,hidemenubar,hidewindowui}
+%%%--->	}%
+%%%--->	
+%%%--->	\setDefaultFS
+%%%--->	{%
+%%%--->	    fullscreen,
+%%%--->	    cursor=delay,
+%%%--->	    Trans=PushRightUp,
+%%%--->	    loop,
+%%%--->	    escape,
+%%%--->	    timeDelay=5,
+%%%--->	    useTimer,
+%%%--->	}%
+%%%------------------------------------------------------------------------
+\sectionLayout{%
+	afterskip=12pt,
+	halign=c,
+	color=blue,
+	shadowcolor=blue
+}
+%%%-----------------------------------------------------------------------
+%%%--- \margins{1in}{1in}{94pt}{.25in}
+%%%--- \margins{0pt}{0pt}{0pt}{0pt}
+%%%--- \setlength{\textwidth}{5.5in}
+%%%--- \setlength{\textheight}{9.5in}
+%%%-----------------------------------------------------------------------
+\def\Black{\color{black}}
+\def\nBlue{\color{buttonshadow}}
+
+\definecolor{myborder}{rgb}{0.8,1,1}
+\definecolor{gray9}{gray}{.9}
+\definecolor{orange}{rgb}{1,.549,0}
+\definecolor{panelbackground}{gray}{.8}
+\definecolor{gray6}{gray}{.4}
+\definecolor{gray3}{gray}{.3}
+\definecolor{boldtxt}{rgb}{0.3,0.3,0.1}
+
+\definecolor{hellgelb}{rgb}{1,1,0.85}
+\definecolor{colkeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{1,0,0}
+\definecolor{colString}{rgb}{0,0.5,0}
+\definecolor{light-blue}{rgb}{0.8,0.85,1}
+\definecolor{mygray}{gray}{0.75}
+\definecolor{grayfifteen}{gray}{.85}
+\definecolor{logoblue}{rgb}{0,0,0.267}
+
+\definecolor{buttonbackground}{rgb}{0,.624,.820}
+\definecolor{buttonshadow}{rgb}{.001,0,.502}
+\definecolor{button}{rgb}{1,.549,.0}
+\definecolor{buttondisable}{gray}{.7}
+
+\pagestyle{empty}
+
+\hypersetup{bookmarksopen=false,
+			pdftex=true,
+			pdfmark=true,
+			linktocpage,
+			colorlinks=true,
+			unicode,
+			linkcolor=magenta,
+			anchorcolor=cyan,
+			citecolor=green,
+			urlcolor=blue,
+			pagecolor=white,
+			bookmarks=false,
+			bookmarksopen=false,
+			pdfcenterwindow=yes,
+			pdfmenubar=false,
+			pdftoolbar=false,
+			pdfpagemode=SinglePage,
+			pdfpagemode=FullScreen,
+			pdfstartpage=5,
+			pdfwindowui=true,
+			pdfpagetransition={/S /Split /D 5 /M /O /Dm /V}
+			%pdfpagetransition={/S /Split /D 5 /M /O /Dm /H}
+			%pdfpagetransition={/S /Wipe /Di /90}
+			}
+
+\graphicspath{{./img/}} 
+
+\newcommand{\Eq}[1]{(\ref{#1})}
+%----------------------------- How to activate alll 3D annotation --------
+%%%---> When I print my PDF which contains a lot of 3D annotations,
+%%%---> I only see the 3D in the first page...
+%%%---> I try to activate ALL the 3D annotation in ALL pages without use
+%%%---> poster because the PDF is auto-generated by pdflatex.
+%%%---> Put the following code into the preamble of your LaTeX source file,
+%%%---> i.e. just before \begin{document}. It will activate all 3D
+%%%---> annotations just before printing and deactivate them (except those
+%%%---> on the current [visible] page) after printing has finished, in order
+%%%---> to save resources.
+%%%--- \pdfcatalog{
+%%%---  /AA << % the document's additional actions dictionary
+%%%---    /WP << % "will print" event
+%%%---      /S /JavaScript
+%%%---      /JS (
+%%%---        for (var i=0; i<this.numPages; i++){
+%%%---          var annots3d=this.getAnnots3D({nPage: i});
+%%%---          if (typeof annots3d!=undefined){
+%%%---            for(var j in annots3d){
+%%%---              annots3d[j].activated=true;
+%%%---            }
+%%%---          }
+%%%---        }
+%%%---      )
+%%%---    >>
+%%%---    /DP << % "did print" event
+%%%---      /S /JavaScript
+%%%---      /JS (
+%%%---        for (var i=0; i<this.numPages; i++){
+%%%---          var annots3d=this.getAnnots3D({nPage: i});
+%%%---          if (typeof annots3d!=undefined && i!=this.pageNum){
+%%%---            for(var j in annots3d){
+%%%---              annots3d[j].activated=false;
+%%%---            }
+%%%---          }
+%%%---        }
+%%%---      )
+%%%---    >>
+%%%---  >>
+%%%---}
+%%%-----------------------------------------------------------------------
+%%%--->	\pdfcatalog{/PageMode /FullScreen}
+%%%--->	\pdfpageattr{/Dur 2 /Trans << /S /Dissolve /D 0.5 >>}
+%%%-----------------------------------------------------------------------
+%%%---> Tikz Box create --------------------------------------------------
+\newlength{\boxw}
+\newlength{\boxh}
+\newlength{\shadowsize}
+\newlength{\boxroundness}
+\newlength{\tmpa}
+\newsavebox{\shadowblockbox}
+
+\setlength{\shadowsize}{6pt}
+\setlength{\boxroundness}{3pt}
+
+\newenvironment{shadowblock}[1]%
+{\begin{lrbox}{\shadowblockbox}\begin{minipage}{#1}}%
+{\end{minipage}\end{lrbox}%
+\settowidth{\boxw}{\usebox{\shadowblockbox}}%
+\settodepth{\tmpa}{\usebox{\shadowblockbox}}%
+\settoheight{\boxh}{\usebox{\shadowblockbox}}%
+\addtolength{\boxh}{\tmpa}%
+\begin{tikzpicture}
+    \addtolength{\boxw}{\boxroundness * 2}
+    \addtolength{\boxh}{\boxroundness * 2}
+
+    \foreach \x in {0,.05,...,1}
+    {
+        \setlength{\tmpa}{\shadowsize * \real{\x}}
+        \fill[xshift=\shadowsize - 1pt,yshift=-\shadowsize + 1pt,
+				black,opacity=0.04,rounded corners=\boxroundness]
+            (\tmpa, \tmpa) rectangle +(\boxw - \tmpa - \tmpa,
+                \boxh - \tmpa - \tmpa);
+    }
+
+    \filldraw[left color=blue!50, draw=black!50,thick, rounded corners=\boxroundness]
+        (0, 0) rectangle (\boxw, \boxh);
+    \draw node[xshift=\boxroundness,yshift=\boxroundness,
+        inner sep=0pt,outer sep=0pt,anchor=south west]
+             (0,0) {\usebox{\shadowblockbox}};
+\end{tikzpicture}}
+
+\newenvironment{shadowblockb}[1]%
+{\begin{lrbox}{\shadowblockbox}\begin{minipage}{#1}}%
+{\end{minipage}\end{lrbox}%
+\settowidth{\boxw}{\usebox{\shadowblockbox}}%
+\settodepth{\tmpa}{\usebox{\shadowblockbox}}%
+\settoheight{\boxh}{\usebox{\shadowblockbox}}%
+\addtolength{\boxh}{\tmpa}%
+\begin{tikzpicture}
+    \addtolength{\boxw}{\boxroundness * 2}
+    \addtolength{\boxh}{\boxroundness * 2}
+
+    \foreach \x in {0,.05,...,1}
+    {
+        \setlength{\tmpa}{\shadowsize * \real{\x}}
+        \fill[xshift=\shadowsize - 1pt,yshift=-\shadowsize + 1pt,
+				black,opacity=.04,rounded corners=\boxroundness]
+            (\tmpa, \tmpa) rectangle +(\boxw - \tmpa - \tmpa,
+                \boxh - \tmpa - \tmpa);
+    }
+
+    \filldraw[color=yellow!50, draw=black!50, rounded corners=\boxroundness]
+        (0, 0) rectangle (\boxw, \boxh);
+    \draw node[xshift=\boxroundness,yshift=\boxroundness,
+        inner sep=0pt,outer sep=0pt,anchor=south west]
+             (0,0) {\usebox{\shadowblockbox}};
+\end{tikzpicture}}
+%%%-----------------------------------------------------------------------
+%%%---> Animation sin cos function
+\newcounter{angle}
+\setcounter{angle}{0}
+
+\makeatletter
+% command to create toggle link to animation frame (push button)%
+\newcommand{\ShowHideFrame}[3]{%
+% #1: anim No. (zero-based),
+% #2: frame No. (zero-based),
+% #3: link text
+\leavevmode%
+\pdfstartlink user {
+/Subtype /Link
+/Border [\@pdfborder]%
+/A <<
+/S/JavaScript
+/JS (
+\if@anim@useocg%
+if(a#1.fr[#2].state&=& true){
+a#1.fr[#2].state=false;
+}else{
+a#1.fr[#2].state=true;
+}
+\else
+if (a#1.fr[#2].display&=& display.visible){
+a#1.fr[#2].display=display.hidden;
+}else{
+a#1.fr[#2].display=display.visible;
+}
+this.dirty=false; %reset document status to \upsilonnchanged'
+\fi
+)
+>>
+}#3%
+\pdfendlink%
+}
+% command to create link that goes to particular frame while hiding
+% the current one (radio button)
+\newcommand{\GoToFrame}[3]{%
+% #1: anim No. (zero-based),
+% #2: frame No. (zero-based),
+% #3: link text
+\leavevmode%
+\pdfstartlink user {
+/Subtype /Link
+/Border [\@pdfborder]%
+/A <<
+/S/JavaScript
+/JS (
+\if@anim@useocg
+a#1.fr[a#1.idx].state=false;
+a#1.idx=#2;
+a#1.fr[#2].state=true;
+\else
+a#1.fr[a#1.idx].display=display.hidden;
+a#1.idx=#2;
+a#1.fr[#2].display=display.visible;
+this.dirty=false;
+\fi
+)
+>>
+}#3%
+\pdfendlink%
+}
+
+\makeatother
+
+%%%-----------------------------------------------------------------------
+\begin{document}
+%%%-------------------- Logo LugaTeX Interactive -------------------------
+%%%--- \tikzset{
+%%%---	ld/.style={level distance=#1},lw/.style={line width=#1},
+%%%--- 	level 1/.style={ld=4.5mm, trunk, lw=1ex ,sibling angle=60},
+%%%--- 	level 2/.style={ld=3.5mm, trunk!80!leaf a,lw=.8ex,sibling angle=56},
+%%%--- 	level 3/.style={ld=2.75mm,trunk!60!leaf a,lw=.6ex,sibling angle=52},
+%%%--- 	level 4/.style={ld=2mm, trunk!40!leaf a,lw=.4ex,sibling angle=48},
+%%%--- 	level 5/.style={ld=1mm, trunk!20!leaf a,lw=.3ex,sibling angle=44},
+%%%--- 	level 6/.style={ld=1.75mm,leaf a, lw=.2ex,sibling angle=40},
+%%%---}
+%%%--- \pgfarrowsdeclare{leaf}{leaf}
+%%%--- {\pgfarrowsleftextend{-2pt} \pgfarrowsrightextend{1pt}}
+%%%---{
+%%%--- 	\pgfpathmoveto{\pgfpoint{-2pt}{0pt}}
+%%%--- 	\pgfpatharc{150}{30}{1.8pt}
+%%%--- 	\pgfpatharc{-30}{-150}{1.8pt}
+%%%--- 	\pgfusepathqfill
+%%%---}
+\newcommand{\logo}[5]
+{
+ 	\colorlet{border}{#1}
+ 	\colorlet{trunk}{#2}
+ 	\colorlet{leaf a}{#3}
+ 	\colorlet{leaf b}{#4}
+ 	\begin{tikzpicture}
+ 	\scriptsize\scshape
+ 	\draw[border,line width=1ex,yshift=.3cm,
+ 	yscale=1.45,xscale=1.05,looseness=1.42]
+ 	(1,0) to [out=90, in=0] (0,1) to [out=180,in=90] (-1,0)
+ 	to [out=-90,in=-180] (0,-1) to [out=0, in=-90] (1,0) -- cycle;
+ 	\coordinate (root) [grow cyclic,rotate=90]
+ 	child {
+ 		child [line cap=round] foreach \a in {0,1} {
+ 			child foreach \b in {0,1} {
+ 				child foreach \c in {0,1} {
+ 					child foreach \d in {0,1} {
+ 						child foreach \leafcolor in {leaf a,leaf b}
+ 						{ edge from parent [color=\leafcolor,-#5] }
+ 					} } }
+ 		} edge from parent [shorten >=-1pt,serif cm-,line cap=butt]
+ 	};
+ 	\node [align=center,below] at (0pt,-.5ex)
+ 	{ \textcolor{border}{L}uga\TeX \\ \textcolor{border}{I}nteractive \\
+ 	   \textcolor{border}{S}ystem };
+ 	\end{tikzpicture}
+}
+%%%-----------------------------------------------------------------------
+%%%---> icon book
+\newcommand{\iconbook}{%
+\begin{colormixin}{100}%
+  \pgfdeclarehorizontalshading{cover}{20pt}{%
+    rgb(0pt)=(0.84,.5,.5);
+    rgb(1.8pt)=(0.82,.48,.48);
+    rgb(1.9pt)=(0.83,.66,.65);
+    rgb(2.1pt)=(0.83,.66,.65);
+    rgb(3pt)=(0.69,.25,.3);
+    rgb(8pt)=(0.45,0.05,0.05)}%
+                                %
+  \pgfdeclareverticalshading{side}{10pt}{%
+    rgb(0pt)=(0.78,.78,.78);
+    rgb(2.5pt)=(0.60,.60,.60);
+    rgb(5pt)=(0.25,.25,.25)}%
+  \noindent\hbox{%
+    \begin{pgfpicture}{0pt}{1pt}{14pt}{11pt}
+      \pgfsetxvec{\pgfpoint{1pt}{0pt}}
+      \pgfsetyvec{\pgfpoint{0pt}{1pt}}
+      \pgfsetlinewidth{0.4pt}
+      \pgfsetroundjoin
+      
+      \pgfsetlinewidth{0.8pt}
+      \color[gray]{0.5}
+      \pgfmoveto{\pgfxy(6.5,11.5)}
+      \pgflineto{\pgfxy(1,10.5)}
+      \pgfcurveto{\pgfxy(0.6,9.75)}{\pgfxy(0.6,8.75)}{\pgfxy(1,8)}
+      \pgflineto{\pgfxy(6.5,2)}
+      \pgflineto{\pgfxy(13,3)}
+      \pgfcurveto{\pgfxy(12,4)}{\pgfxy(12,5)}{\pgfxy(13,6)}
+      \pgfclosepath
+      
+      \pgfmoveto{\pgfxy(6.5,2)}  
+      \pgfcurveto{\pgfxy(6,3)}{\pgfxy(6,4)}{\pgfxy(6.5,5)}
+      \pgflineto{\pgfxy(13,6)}
+      \pgfstroke
+
+      \begin{pgfscope}
+        \pgfmoveto{\pgfxy(6.5,11.5)}
+        \pgflineto{\pgfxy(1,10.5)}
+        \pgfcurveto{\pgfxy(0.6,9.75)}{\pgfxy(0.6,8.75)}{\pgfxy(1,8)}
+        \pgflineto{\pgfxy(6.5,2)}
+        \pgfcurveto{\pgfxy(6,3)}{\pgfxy(6,4)}{\pgfxy(6.5,5)}
+        \pgflineto{\pgfxy(13,6)}
+        \pgfclosepath
+        \pgfclip
+
+        \pgfputat{\pgfxy(8.5,0)}
+        {%
+          \begin{pgfrotateby}{\pgfdegree{45}}
+            \pgfbox[left,base]{\pgfuseshading{cover}}
+          \end{pgfrotateby}
+        }
+      \end{pgfscope}      
+      
+      \begin{pgfscope}
+        \pgfmoveto{\pgfxy(6.5,2)}  
+        \pgfcurveto{\pgfxy(6,3)}{\pgfxy(6,4)}{\pgfxy(6.5,5)}
+        \pgflineto{\pgfxy(13,6)}
+        \pgfcurveto{\pgfxy(12,5)}{\pgfxy(12,4)}{\pgfxy(13,3)}
+        \pgfclosepath
+        \pgfclip
+
+        \pgfputat{\pgfxy(7.5,0)}
+        {%
+          \begin{pgfrotateby}{\pgfdegree{30}}
+            \pgfbox[left,base]{\pgfuseshading{side}}
+          \end{pgfrotateby}
+        }
+      \end{pgfscope}      
+      
+      \pgfsetlinewidth{0.4pt}
+      \color[gray]{0.2}
+      \pgfmoveto{\pgfxy(6.5,11.5)}
+      \pgflineto{\pgfxy(1,10.5)}
+      \pgfcurveto{\pgfxy(0.6,9.75)}{\pgfxy(0.6,8.75)}{\pgfxy(1,8)}
+      \pgflineto{\pgfxy(6.5,2)}
+      \pgflineto{\pgfxy(13,3)}
+      \pgfcurveto{\pgfxy(12,4)}{\pgfxy(12,5)}{\pgfxy(13,6)}
+      \pgfclosepath
+      
+      \pgfmoveto{\pgfxy(6.5,2)}  
+      \pgfcurveto{\pgfxy(6,3)}{\pgfxy(6,4)}{\pgfxy(6.5,5)}
+      \pgflineto{\pgfxy(13,6)}
+      \pgfstroke
+    \end{pgfpicture}%
+  }%
+\end{colormixin}%
+}
+%%%---> icon article
+\newcommand{\iconarticle}{%
+\begin{colormixin}{20}%
+  \pgfdeclareverticalshading{shadow}{20pt}{%
+    rgb(0pt)=(.2,.2,.2);
+    rgb(11pt)=(1,1,1)}%
+  \pgfdeclareverticalshading{paper}{20pt}{%
+    rgb(0pt)=(0.8,0.8,0.5);
+    rgb(15pt)=(1,1,1)}%
+  \pgfdeclareverticalshading{pic}{2.5pt}{%
+    rgb(0pt)=(0.25,0.75,0.25);
+    rgb(1.5pt)=(0.75,0.25,0.25);
+    rgb(3.5pt)=(0.25,0.25,0.75)}%
+  \pgfdeclareverticalshading{corner}{2pt}{%
+    rgb(0pt)=(0.5,0.5,0);
+    rgb(2pt)=(0.8,0.8,0.8)}%
+  \noindent\hbox{%
+    \begin{pgfpicture}{-1pt}{-2pt}{10pt}{12pt}
+      \pgfsetxvec{\pgfpoint{1pt}{0pt}}
+      \pgfsetyvec{\pgfpoint{0pt}{1pt}}
+      \pgfsetlinewidth{0.4pt}
+
+                                %    \begin{pgfscope}
+                                %      \color[gray]{0.7}
+                                %      \pgfmoveto{\pgfxy(0.6,-1)}
+                                %      \pgflineto{\pgfxy(9,-1)}
+                                %      \pgflineto{\pgfxy(9,8.2)}
+                                %      \pgflineto{\pgfxy(6.8,10.4)}
+                                %      \pgflineto{\pgfxy(0.6,10.4)}
+                                %      \pgfclip
+
+                                %      \pgfputat{\pgfxy(0.6,-10)}
+                                %      {%
+                                %        \begin{pgfrotateby}{\pgfdegree{45}}
+                                %          \pgfbox[left,base]{\pgfuseshading{shadow}}
+                                %        \end{pgfrotateby}
+                                %      }
+                                %    \end{pgfscope}      
+
+      \begin{pgfscope}
+        \pgfmoveto{\pgfxy(0,0)}
+        \pgflineto{\pgfxy(8,0)}
+        \pgflineto{\pgfxy(8,9)}
+        \pgflineto{\pgfxy(6,9)}
+        \pgflineto{\pgfxy(6,11)}
+        \pgflineto{\pgfxy(0,11)}
+        \pgfclip
+
+        \pgfputat{\pgfxy(0,-10)}
+        {%
+          \begin{pgfrotateby}{\pgfdegree{45}}
+            \pgfbox[left,base]{\pgfuseshading{paper}}
+          \end{pgfrotateby}
+        }
+      \end{pgfscope}
+      
+      \begin{pgfscope}
+        \pgfmoveto{\pgfxy(8,9)}
+        \pgflineto{\pgfxy(6,9)}
+        \pgflineto{\pgfxy(6,11)}
+        \pgfclip
+
+        \pgfputat{\pgfxy(6,9)}{\pgfbox[left,base]{\pgfuseshading{corner}}}
+      \end{pgfscope}
+
+      \pgfmoveto{\pgfxy(0,0)}
+      \pgflineto{\pgfxy(8,0)}
+      \pgflineto{\pgfxy(8,9)}
+      \pgflineto{\pgfxy(6,11)}
+      \pgflineto{\pgfxy(0,11)}
+      \pgfclosepath
+      \pgfstroke
+      
+      \color[gray]{0.5}
+      \pgfxyline(1,9.5)(6,9.5)
+      \color[gray]{0.6}
+      \pgfxyline(2,8)(6,8)
+      \pgfxyline(2,7)(6,7)
+      
+      \color[gray]{0.7}
+      \pgfxyline(1,5.5)(3.5,5.5)
+      \pgfxyline(1,4.5)(3.5,4.5)
+      \pgfxyline(1,3.5)(3.5,3.5)
+      \pgfxyline(1,2.5)(3.5,2.5)
+      \pgfxyline(1,1.5)(3.5,1.5)
+
+      \pgfputat{\pgfxy(4.5,2.25)}{\pgfbox[left,base]{\pgfuseshading{pic}}}
+      \pgfxyline(4.5,1.5)(7,1.5)
+
+      \color{black}
+      \pgfmoveto{\pgfxy(8,9)}
+      \pgflineto{\pgfxy(6,9)}
+      \pgflineto{\pgfxy(6,11)}
+      \pgfstroke
+    \end{pgfpicture}%
+  }%
+\end{colormixin}%
+}
+%%%-----------------------------------------------------------------------
+\include{01_cover}
+\include{02_contents}
+\include{03_mechanics_cover}
+%\include{04_mechanics}
+%\include{05_mechanics_task}
+%\include{06_mechanics_test}
+%\include{07_graphics}
+\include{08_animation}
+%\include{09_pde_cover}
+%\include{10_pde}
+%\include{11_pde_task}
+%\include{12_pde_test}
+%\include{13_phunction_cover}
+%\include{14_phunction}
+%\include{15_library}
+%\include{16_3dfigure}
+%\include{17_bible}
+%\include{18_back}
+%\include{20_tikz_test}
+\end{document}
+%%%-----------------------------------------------------------------------

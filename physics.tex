@@ -1,0 +1,47 @@
+\documentclass[english,russian]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\usepackage{fullpage}
+\usepackage[x11names,dvipsnames,usenames]{xcolor}
+\usepackage{tikz}
+
+\usetikzlibrary{mindmap,trees,shadows,backgrounds,shapes,fadings}
+
+\definecolor{light-blue}{rgb}{0.8,0.85,1}
+
+\begin{document}
+\pagestyle{empty}
+\begin{flushleft}
+\begin{tikzpicture}
+  \path[mindmap,concept color=yellow, text=white,
+  	every node/.style={concept, circular drop shadow,execute at begin
+  		node=\hskip0pt, level distance=3cm, sibling angle=90}]
+    node[concept, concept color=yellow, line width=1ex, text=white,
+		 fill=black, font=\large\scshape, circular drop shadow,execute at
+			begin node=\hskip0pt] (concept) {Материя}
+    [clockwise from=-60]
+    child[concept color=green!50!black] {
+	node[concept, line  width=1ex, fill=magenta!10,
+		text=black]
+		{Не имеет\\ Структуру}
+	[clockwise from=300]
+	child { node[concept] {Энергия, ЭМ Поле}
+	  [clockwise from=0]
+	  child [concept color=black!50!magenta!90 ]{ node[concept] {\scalebox{0.9}{Излучение}}}
+	 	 child [sibling angle=180, concept color=black!80!blue!90] { node[concept] {Скрытая\\ Энергия}}}
+	  }
+    child[concept color=blue] {
+      node[concept, concept color=blue, line  width=1ex, fill=magenta!10,
+	  	text=black]
+	  	{Имеет\\ Структуру}
+	  [clockwise from=-120]
+	  child { node[concept] {Вещество}
+	  [clockwise from=0]
+	  child [concept color=black!80!blue!90] { node[concept] {Скрытое\\ вещество}}
+	  child [sibling angle=180, concept color=blue!70!cyan!50, text=black] { node[concept] {Обычное\\ вещество}}}
+    };
+\end{tikzpicture}
+\end{flushleft}
+\end{document}

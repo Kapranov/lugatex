@@ -1,0 +1,468 @@
+\newpage	%--- page 2
+\disableTemplate{LugatexLogo}
+\disableTemplate{Navigatorbarbg}
+\disableTemplate{Lugabgphunc}
+\AddToTemplate{Lugamathbg}
+\AddToTemplate{Navigatorbarbg}
+\AddToTemplate{LugatexLogo}
+
+\section{Функциональный анализ}
+\subsection{Метрические и линейные нормированные пространства}
+\subsubsection{Метрические пространства}
+
+\noindent
+\begin{tikzpicture}
+	\node [draw=red, fill=blue!20, very thick, rectangle, rounded corners,
+		inner sep=10pt, inner ysep=20pt] (box){%
+			\begin{minipage}{0.80\textwidth}
+				Пусть дано некоторое не пустое множество $X$. Говорят, что
+				на $X$ задана метрика, если на декартовом произведении
+				$X\times X$ определена функция $\rho(x,y)$, обладающая
+				следующими свойствами:
+			\end{minipage}
+	};
+	\node[fill=blue, text=white, right=10pt] at (box.north west) {%
+	{\bf Определение}};
+	\node[fill=green, text=white, rounded corners] at (box.east) {1};
+\end{tikzpicture}
+
+\begin{enumerate}
+	\item[] \tikz[baseline] \node[ball color=green,circle,text=black]
+		{1};\quad \tikz[baseline] \node {\textcolor{blue}{{\bf %
+				Неотрицательность}}};\\
+	\mbox{}\hspace{30pt} $ \rho(x,y)\geqslant 0\quad \forall x,y \in X
+			\quad\text{и}\quad \rho(x,y)=0 \Leftrightarrow x=y $
+\item[] \tikz[baseline] \node[ball color=green,circle,text=black]
+	{2};\quad \tikz[baseline] \node {\textcolor{blue}{{\bf
+				Симметричность}}};\\
+	\mbox{}\hspace{30pt} $\rho(x,y) = \rho(y,x)\qquad \forall x,y \in X$
+\item[] \tikz[baseline] \node[ball color=green,circle,text=black]
+	{3};\quad \tikz[baseline] \node {\textcolor{blue}{{\bf
+				Неравенство треугольника}}};\\
+	\mbox{}\hspace{30pt} $\rho(x,y)\leqslant \rho(x,z) + \rho(z,y)\qquad
+		\forall x,y,z \in X$\\	
+\end{enumerate}
+
+\noindent
+\tikz[baseline, outline/.style={draw=#1,thick,fill=#1!50}]
+	\node[outline=blue, left color=blue!50, draw=black!50,thick] {%
+		{\small{\bf Будем называть метрическим пространством
+		$\langle X,\rho\rangle$\, множество $X$\,
+		с метрикой $\rho$.}}};
+
+\subsubsection{Линейные нормированные пространства}
+\noindent
+
+\begin{tikzpicture}
+	\node [draw=red, fill=blue!20, very thick, rectangle, rounded corners,
+		inner sep=10pt, inner ysep=20pt] (box){%
+			\begin{minipage}{0.80\textwidth}
+				Множество $\mathfrak{L}$ называется линейным пространством
+				над числовым полем $\mathfrak{F}$, где
+				$\mathfrak{F}=\mathbb{R}$ или $\mathfrak{F}=\mathbb{C}$,
+				если на $\mathfrak{L}$ определены операции:
+				сложения элементов из $\mathfrak{L}$, обозначаемое $x+y$,
+				умножение элементов из $\mathfrak{L}$ на числа из
+				$\mathfrak{F}$, обозначаемое $\lambda x$, которые
+				удовлетворяют следующим аксиомам:
+			\end{minipage}
+	};
+	\node[fill=blue, text=white, right=10pt] at (box.north west) {%
+	{\bf Определение}};
+	\node[fill=green, text=white, rounded corners] at (box.east) {2};
+\end{tikzpicture}
+
+\begin{itemize}
+\item[] \tikz \shadedraw [shading=ball] (0,0) circle (2mm) ;\quad
+	\tikz \node {$x+y=y+x\qquad \forall x,y\in \mathfrak{L}$};
+\item[] \tikz \shadedraw [shading=ball] (0,0) circle (2mm) ;\quad
+	\tikz \node {$(x+y)+z=x+(y+z)\qquad \forall x,y,z \in
+		\mathfrak{L}$};
+\item[] \tikz \shadedraw [shading=ball] (0,0) circle (2mm) ;\quad
+	\tikz \node {{\tiny существует элемент} $\vec{0} \in \mathfrak{L}$,
+	{\tiny который называется нулевым вектором, такой что}
+	$x + \vec{0}=x\quad \forall x\in \mathfrak{L}$};
+\end{itemize}
+
+\begin{itemize}
+\item[] \tikz \shadedraw [shading=ball] (0,0) circle (2mm) ;\quad
+	\tikz \node {$\forall x \in \mathfrak{L}\quad \exists
+		x_1 \in \mathfrak{L}: \quad x + x_1 = \vec{0}$\quad $x_1$
+		{\tiny называется}
+		\pdfmarkupcomment[color=yellow,opacity=1.0,subject={Аннотация},
+		author={Прочитайте! дополнительная информация}]{%
+		противоположным}{ к x и обозначается -x, таким образом, x + (-x) = 0}};
+\item[] \tikz \shadedraw [shading=ball] (0,0) circle (2mm) ;\quad
+	\tikz \node {$\lambda(\mu x) = (\lambda\mu) x\qquad \forall
+		\lambda,\mu\in \mathfrak{F}, \quad \forall x,y,
+		\in\mathfrak{L}$};
+\item[] \tikz \shadedraw [shading=ball] (0,0) circle (2mm) ;\quad
+	\tikz \node {$(\lambda + \mu) x = \lambda x + \mu x\qquad
+		\forall\lambda,\mu\in \mathfrak{F},\quad \forall
+		x\in\mathfrak{L}$};
+\item[] \tikz \shadedraw [shading=ball] (0,0) circle (2mm) ;\quad
+	\tikz \node {$\lambda(x+y)=\lambda x+\lambda y\quad \forall
+	\lambda\in\mathfrak{F}, \quad\forall x,y\in\mathfrak{L}$};
+\item[] \tikz \shadedraw [shading=ball] (0,0) circle (2mm) ;\quad
+	\tikz \node {$1\cdot x = x\qquad \forall x \in \mathfrak{L}$};\\
+	Из аксиом следует единственность нуля, единственность
+	противоположного\\ элемента, а также равенства:
+	$0\cdot x = \vec{0}\qquad \forall x\in\mathfrak{L},\qquad
+	-1\cdot x = -x\qquad \forall x \in \mathfrak{L}$
+\end{itemize}
+
+\noindent
+\begin{tikzpicture}
+	\node [draw=red, fill=blue!20, very thick, rectangle, rounded corners,
+		inner sep=10pt, inner ysep=20pt] (box){%
+			\begin{minipage}{0.80\textwidth}
+				Пусть $\mathfrak{L}$ --- линейное пространство, нормой
+				элемента $\vert x\vert$ из $\mathfrak{L}$ называется
+				числовая функция на $\mathfrak{L}$, удовлетворяющая
+				следующим аксиомам: 
+			\end{minipage}
+	};
+	\node[fill=blue, text=white, right=10pt] at (box.north west) {%
+	{\bf Определение}};
+	\node[fill=green, text=white, rounded corners] at (box.east) {3};
+\end{tikzpicture}
+
+
+\begin{itemize}
+\item[] \tikz \shadedraw [shading=ball] (0,0) circle (2mm) ;\quad
+	\tikz \node {$\vert x\vert\geqslant 0\quad \forall x\in
+		\mathfrak{L},\quad \vert x\vert =0 \Leftrightarrow
+		x = \vec{0}$};
+\item[] \tikz \shadedraw [shading=ball] (0,0) circle (2mm) ;\quad
+	\tikz \node {$\vert\lambda x\vert = \vert\lambda| \vert x\vert
+		\quad \forall x\in \mathfrak{L}, \forall\lambda\in
+		\mathfrak{F}$};
+\item[] \tikz \shadedraw [shading=ball] (0,0) circle (2mm) ;\quad
+	\tikz \node {$\vert x+y\vert\leqslant \vert x\vert +\vert
+		y\vert\quad \forall x,y\in\mathfrak{L}$};   
+\end{itemize}
+
+\noindent
+\begin{tikzpicture}
+	\node [draw=red, fill=blue!20, very thick, rectangle, rounded corners,
+		inner sep=10pt, inner ysep=20pt] (box){%
+			\begin{minipage}{0.80\textwidth}
+				Линейное пространство $\mathfrak{L}$ с определенной
+				на нем нормой называется линейным нормированным
+				пространством.\
+			\end{minipage}
+	};
+	\node[fill=blue, text=white, right=10pt] at (box.north west) {%
+	{\bf Определение}};
+	\node[fill=green, text=white, rounded corners] at (box.east) {4};
+\end{tikzpicture}
+
+
+Если $\mathfrak{L}$ --- линейное нормированное пространство с нормой
+$\vert\cdot\vert$, то функция на $\mathfrak{L}\times\mathfrak{L}$
+$$
+	\rho (x,y) = \vert x - y\vert
+$$
+является метрикой на $\mathfrak{L}$. Действительно,
+
+\begin{itemize}
+\item[] \tikz \shadedraw [shading=ball] (0,0) circle (2mm) ;\quad
+	\tikz \node {$\rho (x,y) \geqslant 0,\, \rho (x,y) = 0
+		\rightarrow \vert x-y\vert = 0 \rightarrow x - y =
+		\vec{0}\, \rightarrow x = y$};
+\item[] \tikz \shadedraw [shading=ball] (0,0) circle (2mm) ;\quad
+	\tikz \node {$\rho (x,y) = \rho (y,x)$\, т.~к.\\
+		$ \rho (y,x) = \vert y - x\vert =\vert (-1) (x - y)\vert
+		= \vert x - y\vert =\rho (x,y) $};
+\item[] \tikz \shadedraw [shading=ball] (0,0) circle (2mm) ;\quad
+	\tikz \node {$\rho (x,y) = \vert x - y\vert = \vert
+		(x - z) + (z - y)\vert\leqslant$\\
+		 $\leqslant \vert x - z\vert  + \vert z - y\vert =
+		 \rho (x,z) - \rho (z,y)$};
+\end{itemize}
+
+Таким образом, выполняются все три аксиомы метрики. Поэтому,
+линейное нормированное пространство одновременно является
+и метрическим пространством с метрикой.
+
+Пространства $\mathbb{R}^n$ и $\mathbb{C}^n$:
+
+
+Пусть 
+$$
+\mathbb{R}^n =\underbrace{\mathbb{R} \times \mathbb{R} \times \ldots\times \mathbb{R}} =
+\{\vec{x} = (x_1, x_2, \ldots x_n), x_k \in \mathbb{R}, k = \overline{1,n}\},
+$$
+$$
+\mathbb{C}^n = \mathbb{C} \times \mathbb{C} \times \ldots\times \mathbb{C} =
+\{\vec{x} = (x_1, x_2, \ldots x_n), x_k \in \mathbb{C}, k = \overline{1,n}\}
+$$
+$\mathbb{R}^n$ и $\mathbb{C}^n$ --- линейные пространства. Определим функцию:
+$$
+\vert \vec{x}\vert_p =
+\begin{cases}
+\left(\sum\limits^n_{k=1} \vert x_k\vert^p\right)^{\frac{1}{p}}, & p \geqslant 1,\\
+    \max\, \{\vert x_k\vert , k = \overline{1,n}\}, & p = +\infty
+\end{cases}
+$$
+
+
+\subsubsection{Примеры метрических и линейных нормированных пространств}
+Функция $\vert\vec{x}\vert_p$ является нормой вследствие неравенства Минковского
+для $p\in(1, +\infty)$. А при $0 < p < 1$ определим метрику равенством:
+$$
+\rho_{p}(\vec{x}, \vec{y}) = \sum\limits^n_{k=1} |x_k - y_k|^{p}
+$$
+Эта функция является метрикой также вследствие неравенства Минковского для $p \in (0, 1)$.
+
+
+Пусть $0 < p < \infty$. Определим пространство $\l_{p}$ как множество всех 
+последовательностей $\vec{x} = \{x_k\}^{\infty}_{k=1}$,
+    таких, что ряд $\sum\limits^{\infty}_{k=1} |x_k|^{p}$ сходится.
+
+
+Вследствие неравенств Минковского для рядов,
+множество $l_{p}$ являются линейными пространствами при любом $p > 0$
+и при  $p \geqslant 1$ --- нормированными пространствами с нормами:
+$$
+\vert\vec{x}\vert_{p} = \left(\sum\limits^{\infty}_{k=1} |x_k|^{p}\right)^{\frac{1}{p}}
+$$
+а при $ 0 < p < 1$ --- метрическими пространствами с метрикой:
+$$
+\rho_{p}(\vec{x}, \vec{y}) = \sum^n_{k=1} |x_k - y_k|^{p}
+$$
+
+
+Пусть $l_{\infty} = \{\vec{x} = \{ x_k\}^{\infty}_{k=1} : \sup\, |x_k| < \infty\}$ ---
+совокупность всех ограниченных числовых последовательностей. 
+Очевидно, что $l_{\infty}$ --- линейное пространство.
+Оно является также нормированным пространством, если определить:
+$$
+\vert\vec{x}\vert_{\infty} = \sup\, \{|x_k|, k = 1, 2,\ldots\}
+$$
+Справедливо следующее утверждение:
+
+\vglue 10pt
+
+\noindent
+\begin{tikzpicture}
+	\node [draw=blue, fill=green!20, very thick, rectangle,
+	rounded corners, inner sep=10pt, inner ysep=20pt] (box) {%
+		\begin{minipage}[t!]{0.5\textwidth}
+			Если $p_1 < p_2$, то $l_{p_{1}} \subset l_{p_{2}}$.
+			Кроме того, если $\vec{x} =\{x_k\}^\infty_{k=1}
+			\in l_{p_{0}}$ при некотором $p_{0} \geqslant 1$,
+			то справедливо равенство:
+		\end{minipage}
+		};
+		\node[fill=blue, text=white, ellipse] at (box.north) {{\bf Теорема}};
+\end{tikzpicture}
+
+$$
+\vert\vec{x}\vert_{\infty} = \lim_{p \to +\infty} \vert\vec{x}\vert_{p}
+$$
+
+Линейным пространством, содержащимся в $l_\infty$, является пространством $c_0$ ---
+множество всех последовательностей $\vec{x} = \{x_k\}^\infty_{k=1}$
+таких, что:
+$$
+\lim_{k \to \infty} x_k = 0 
+$$
+
+Если определить норму элемента $\vec{x} \in c_0$ равенством:
+$$
+\vert\vec{x}\vert = \sup\, \{\vert x_k\vert , k = 1, 2, \ldots\}
+$$
+то $c_0$ становится линейным нормированным пространством. Заметим, что
+при любом  $p > 0$ пространство $l_p$ содержится в $c_0$.
+
+
+Пусть $s$ --- множество всех числовых последовательностей и пусть
+$\vec{x} = \{x_k\},\, \vec{y} =\{y_k\} \in s$.
+Положим:
+$$
+\rho(\vec{x},\vec{y}) =\sum^{\infty}_{k=1} \frac{1}{2^k}
+ \frac{\vert x_k - y_k\vert}{1 + \vert x_k - y_k\vert}
+$$
+Аксиомы неотрицательности и симметрии очевидны. Аксиома треугольника следует из неравенства:
+$$
+\frac{\vert a + b\vert}{1 + \vert a + b\vert} \leqslant
+ \frac{\vert a\vert}{1 + \vert a\vert} + \frac{\vert b\vert }{1 + \vert b\vert }
+$$
+которое является следствием того, что функция:
+$$
+f(x)  = \frac{x}{1 + x}
+$$
+монотонно возрастает на $\left[ 0, + \infty\right)$.
+
+Множество всех непрерывных функций на отрезке $\left[a,b\right]$ является
+линейным пространством.
+Определим норму равенством:
+$$
+\vert x\vert = \max\, \{\vert x(t)\vert , t\in \left[a,b\right]\}
+$$
+Такое линейное нормированное пространство обозначается $C_{\left[a,b\right]}$.
+
+
+Множество всех функций на отрезке $\left[a, b\right]$, имеющих непрерывные
+производные до $k$--ого порядка включительно, является линейным пространством.
+
+
+Определим норму равенством:
+$$
+\vert x\vert_k = \sum^k_{l=0} 
+	\max\, \left\{ \left| x^{(l)} (t)\right|,\, t \in \left[a, b\right]\right\}
+$$
+
+
+На множестве всех непрерывных функций на отрезке $\left[a, b\right]$ определим:
+$$
+\vert x\vert_p = \left(\int\limits^{b}_{a} \left|x (t)\right|^p\, dt
+       	\right)^{\frac{1}{p}},\, p \geqslant 1\qquad\text{норма}
+$$
+
+$$
+\rho_p (x, y) = \int\limits^b_a \left|x (t) - y (t)\right|^{p}\, dt, \quad 0 < p < 1
+\qquad\text{метрика}
+$$
+
+
+То что норма, а метрика следует из интегральных
+неравенств Минковского.
+Линейные пространство непрерывных на $\left[a, b\right]$ функций с
+нормой или метрикой будем обозначать $\widetilde{L}_p \left[a, b\right]$.
+
+\noindent
+\pdfmarkupcomment[color=yellow,opacity=1.0,subject={Аннотация},
+	author={Обратитесь к источнику!}]{%
+	{\bf Замечание}}{Более подробно вы можете ознакомится
+	в издании Арлинский Ю.М. Введение в функциональный анализ}
+В примерах пространств: 
+$\mathbb{R}^n$\, и\, $\mathbb{C}^n$\,
+$l_p$\, $C^{\left( k \right)}_{\left[a, b\right]}$\,
+норма при $p = 2$ имеет особое название Евклидовой или Гильбертовой.
+Имеет место следующие равенство для $x(t)\in C_{\left[a,b\right]}$:
+$
+\lim_{p \to +\infty} \vert x\vert_p = \max\, {\vert x (t)\vert,
+t\in\left[a, b\right]} = \vert x\vert_{C_{\left[a,b\right]}}
+$
+
+\newpage
+\disableTemplate{LugatexLogo}
+\disableTemplate{Navigatorbarbg}
+\disableTemplate{Lugamathbg}
+\AddToTemplate{Lugabgtest}
+\AddToTemplate{Navigatorbarbg}
+\AddToTemplate{LugatexLogo}
+\subsection{Задачи с примерами решения}
+{\color{white}
+\noindent
+\textcolor{light-blue}{Выяснить, есть ли функция} $\rho$\,
+\textcolor{light-blue}{расстоянием на множестве} $X$:
+
+
+\noindent
+\textcolor{magenta}{\textbf{Задание}}. $\rho(x, y) = \sqrt{\vert x - y\vert}, \quad X = R$.
+
+
+\noindent
+\textcolor{yellow}{\textbf{Решение}}. Проверим, выполняются ли аксиомы метрики
+$$
+\rho(x, y) = 0 \Leftrightarrow \sqrt{\vert x - y\vert} = 0
+\Leftrightarrow \vert x - y \vert = 0 \Leftrightarrow x = y
+$$
+$$
+\rho(y, x) = \sqrt{\vert y - x\vert} = \sqrt{\vert x - y\vert} =
+\rho (x, y)
+$$
+
+\noindent
+Осталось проверить неравенство треугольника. Докажем, что
+$$
+\sqrt{\vert x - z\vert} \leqslant \sqrt{\vert x - y\vert} +
+\sqrt{\vert y - z\vert},\quad \forall x, y, z \in R
+$$
+
+\noindent
+Пусть, $x-y=a,\, y-z=b$, тогда $x − z = y + a − y + b = a + b$\,
+Следовательно,
+$$
+\sqrt{\vert a + b\vert} \leqslant \sqrt{\vert a \vert} +
+\sqrt{\vert b \vert} \to \vert a + b\vert \leqslant \vert a\vert +
+2\sqrt{\vert ab\vert} + \vert b\vert
+$$
+
+\noindent
+Так как $\vert a + b\vert \leqslant \vert a\vert + \vert b\vert$,
+то тем более,
+$$
+\vert a + b\vert \leqslant \vert a\vert + 2\sqrt{\vert ab\vert}
++ \vert b\vert, \quad \left(2\sqrt{\vert ab\vert} \geqslant 0\right)
+$$
+
+\noindent
+\textcolor{magenta}{\textbf{Задание}}. $\rho(x, y)=(x-y)^2,\, X = R$
+
+\noindent
+\textcolor{yellow}{\textbf{Решение}}. Проверим, выполняются ли аксиомы метрики
+$$
+\rho(x, y) = 0 \Leftrightarrow \vert x - y\vert = 0
+\Leftrightarrow  x = y
+$$
+$$
+\rho(y, x) = (y -x)^2 = (x-y)^2 = \rho(x, y)
+$$
+
+\noindent
+Осталось проверить неравенство треугольника. Докажем, что
+$$
+(x-z)^2 \leqslant (x-y)^2 + (y-z)^2,\quad \forall x, y, z \in R
+$$
+
+\noindent
+Пусть, $x-y=a,\, y-z=b$, тогда $x − z = y + a − y + b = a + b$\,
+неравенство
+$$
+(a + b)^2 \leqslant a^2 + b^2
+$$
+
+\noindent
+не выполняется для $\forall a,\, b$\,  и, следовательно, $\rho$\, ---
+не является метрикой.
+
+\newpage
+\disableTemplate{LugatexLogo}
+\disableTemplate{Navigatorbarbg}
+\disableTemplate{Lugabgtest}
+\AddToTemplate{Lugaphunctest}
+\AddToTemplate{Navigatorbarbg}
+\AddToTemplate{LugatexLogo}
+\subsection{Модульные тесты}
+
+\noindent
+\textbf{1.3} Найти расстояние между функциями
+$f (t) = \sin t и \text{\textg}(t) = 2$\, в
+метрических пространствах:
+1) $C\left[0; \pi\right]$;
+2) $\widetilde{L}_1\left[0; \pi\right]$;
+3) $\widetilde{L}_2\left[0; \pi\right]$;
+
+\noindent
+\textbf{Ответ}. 1)$\rho(f(t), \text{\textg}(t))=2$;
+2) $\int^\pi_0 \vert\sin t - 2\vert\, dt 2\pi -2 = 4.28$
+3) $\rho(f(t), \text{\textg}(t))=\sqrt{6.13}$;
+
+\noindent
+\textbf{1.3} Найти норму функции $x(t) =\frac{t+6}{t^2+13}$.
+в пространстве $C\left[−5; 5\right]$.
+
+\noindent
+\textbf{Ответ}. $\max_{t \in \left[-5; 5\right]} \vert
+x(t)\vert=\frac{1}{2}$
+
+\noindent
+\textbf{1.3} $\Vert x\Vert =\arctg\vert x\vert,\quad x\in R$
+
+\noindent
+\textbf{Ответ}. функция не является нормой $\pi \/ 9$
+}

@@ -1,0 +1,65 @@
+\newpage
+\disableTemplate{LugatexLogo}
+\disableTemplate{Navigatorbarbg}
+\disableTemplate{Lugamathbg}
+\disableTemplate{Lugaphunctest}
+\AddToTemplate{Lugalibrary}
+
+\vglue 35pt
+
+\begin{center}
+\begin{tikzpicture}
+\definecolor{monred}{rgb}{0.79 0.0 0.1}
+\tikzstyle{rec} = [rectangle,rounded corners,ultra thick,draw=monred!90,fill=white] 
+\node[rec,text=black!80,inner sep=3mm,drop shadow] (th){\parbox{0.6\textwidth}{%
+Форма запроса --- пример использования \verb"URL" и \verb"CGI",
+выбор интернет ресурсов и запуск интернет браузера:}};
+\node[rec,text=monred!95,anchor=south west,xshift=3mm,yshift=-1mm]
+at (th.north west) {\small Внимание };
+\end{tikzpicture}
+\end{center}
+\vglue 5pt
+\noindent
+\hspace{89pt}
+\parbox{250pt}{%
+\textField
+[\BC{0.8 0.85 1}\BG{0.98 0.92 0.73}
+\textColor{0 0 0.267 rg}
+]{myText}{2.15in}{11bp}\kern1bp\pushButton[\BC{0.8 0.85 1}\CA{ Запрос}
+\A{\JS{%
+	var f = this.getField("dest");\r
+	this.getURL(f.value,false);
+}}]{redirect}{45bp}{11bp}
+}
+\hspace{-38pt}
+\parbox{50pt}{%
+\pushButton[\ui{%
+	bordercolor={0.8 0.85 1},bgcolor={0.9 0.85 1},
+	textcolor={0 0 0},align={right},
+	uptxt={Помощь},
+	js={app.alert("Welcome LugaTeX!")}
+}]{pb1}{}{11bp}
+}
+\vglue 5pt
+\noindent
+\hspace{89pt}
+\parbox{250pt}{%
+\def\URL{http://opennet.ru}
+\comboBox[\DV{\URL}\V{\URL}\BG{0.98 0.92 0.73}\BC{0.8 0.85 1}]
+{dest}{2.15in}{11bp}{%
+	[ (\URL)(LugaTeX)]
+}\kern1bp\pushButton[\BC{0.8 0.85 1}\CA{ Запрос}
+\A{\JS{%
+	var f = this.getField("dest");\r
+	this.getURL(f.value,false);
+}}]{redirect}{45bp}{11bp}
+}
+\hspace{-38pt}
+\parbox{50pt}{%
+\pushButton[\ui{%
+	bordercolor={0.8 0.85 1},bgcolor={0.9 0.85 1},
+	textcolor={0 0 0},align={right},
+	uptxt={Помощь},
+	js={app.alert("\\u041f\\u0440\\u0438\\u0432\\u0435\\u0442 \\u0432\\u0430\\u0441 \\u043f\\u0440\\u0438\\u0432\\u0435\\u0442\\u0441\\u0442\\u0432\\u0443\\u0435\\u0442 LugaTeX ")}
+}]{pb1}{}{11bp}
+}

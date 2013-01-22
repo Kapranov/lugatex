@@ -1,0 +1,246 @@
+\newpage
+\disableTemplate{Lugatitle}
+\AddToTemplate{Lugamathbg}
+\AddToTemplate{Navigatorbarbg}
+\AddToTemplate{LugatexLogo}
+
+%\begin{tikzpicture}[overlay]
+%	\clip (-6.6,-5.8) rectangle ++(3,8);
+%	\node (matter) {\mbox{}};
+% 
+%  	\begin{pgfonlayer}{background}
+%  		\clip (-8,-8) rectangle ++(16,12);
+%  		\colorlet{upperleft}{green!50!black!25}
+%  		\colorlet{upperright}{orange!25}
+%  		\colorlet{lowerleft}{red!25}
+%  		\colorlet{lowerright}{blue!25}
+%  		% The large rectangles:
+%  		\fill [upperleft]  (matter) rectangle ++(-8,8);
+%  		\fill [upperright] (matter) rectangle ++(8,8);
+%  		\fill [lowerleft]  (matter) rectangle ++(-8,-8);
+%  		\fill [lowerright] (matter) rectangle ++(8,-8);
+%  		% The shadings:
+%  		\shade [left color=upperleft,right color=upperright]
+%  		([xshift=-1.5cm]matter) rectangle ++(2,20);
+%  		\shade [left color=lowerleft,right color=lowerright]
+%  		([xshift=-1cm]matter) rectangle ++(2,-20);
+%  		\shade [top color=upperleft,bottom color=lowerleft]
+%  		([yshift=-1cm]matter) rectangle ++(-20,2);
+%  		\shade [top color=upperright,bottom color=lowerright]
+%  		([yshift=-1cm]matter) rectangle ++(20,2);
+%  	\end{pgfonlayer}
+%  
+%  \end{tikzpicture}
+  
+%%%--> \begin{textblock}{1}(-2.7,-2)
+%%%--> \includegraphics[scale=1]{physics.pdf}
+%%%--> \end{textblock}
+%%%--> 
+%%%--> \newpage
+%\hspace{-15pt}
+
+\colorlet{KernFarbe}{red}
+\colorlet{HuelleFarbe}{blue}
+%\vspace{35mm}
+\begin{textblock}{8}(1.875,1.99)
+\begin{tikzpicture}[
+        Huelle/.style = {ball color=HuelleFarbe!25},
+        Kern/.style = {ball color=KernFarbe!25},
+        Proton/.style = {ball color=HuelleFarbe!80},
+        Elektron/.style = {ball color=KernFarbe!80},
+	scale=1.1
+    ]
+
+    \shade[Huelle, circular drop shadow={opacity=1},
+    	circular drop shadow={shadow scale=1.15}, shading angle=360] (8,0) circle (2cm);
+    \shade[Kern]   (8,0) circle (.7cm);
+
+    % Elektronen
+    \foreach \cx/\cy in {8/0,8/.3,8/-.3,8.2/.25,8.2/-.25,%
+        8.3/.09,8.3/-.09,7.8/.25,7.8/.-.25,7.7/.09,%
+        7.7/-.09,7.5/.09,8.5/-.09,7.6/-.3,8/-.5,8/.5,8.4/.4}{
+            \shade[Elektron] (\cx,\cy) circle (.6mm);
+    }
+    % Protonen
+    \foreach \cx/\cy in {6.9/-.1,7.4/1.2,7/.7,7.9/1.5,9.2/0.2,%
+        9/1,7.5/-1.2,7/-0.8,9/-0.8,8.7/-1.2,7.7/-1.5,8.9/.5, %8.6,-1
+        7/1.3,6.6/.4,9.6/-.31,9.6/.6,8.3/1.2}{
+            \shade[Proton] (\cx,\cy) circle (.6mm);
+    }
+    
+	\draw[<-] (8.25,.55) -- +(1.7,1) node[above] {\begin{shadowblockb}{1.18cm}
+			{\bf \tiny атомное ядро}\end{shadowblockb}};
+	\draw[<-] (7,.4) -- +(-2,1) node[above] {\begin{shadowblockb}{1.54cm}
+			{\bf \tiny атомная оболочка}\end{shadowblockb}};
+	\draw[<-] (6.8,-.085) -- +(-3,.4) node[above]
+	{\begin{shadowblockb}{0.75cm}
+			{\bf \tiny электрон}\end{shadowblockb}};
+		\draw[<-] (7.5,-.35) -- +(-3,-.7) node[below] {\begin{shadowblockb}{0.6cm}
+			{\bf \tiny протон}\end{shadowblockb}};
+\end{tikzpicture}
+\end{textblock}
+
+\begin{textblock}{9}(3.3,6)
+	\tikz \node {{\bf {\tiny 75\%}}};
+\end{textblock}
+
+\begin{textblock}{10}(1.2,7.21)
+	\tikz \node {{\bf {\tiny 20\%}}};
+\end{textblock}
+
+\begin{textblock}{11}(0.1,6.5)
+	\tikz \node {{\bf {\tiny 4\%}}};
+\end{textblock}
+
+\begin{textblock}{12}(1,5.7)
+	\tikz \node {{\bf {\tiny 1\%}}};
+\end{textblock}
+
+\begin{center}
+	\vglue 3pt
+\begin{tikzpicture}[scale=0.85]
+  \path[mindmap,concept color=yellow, text=white,
+  	every node/.style={concept, circular drop shadow,execute at begin
+  		node=\hskip0pt, level distance=3cm, sibling angle=90}]
+    node[concept, concept color=yellow, line width=1ex, text=white,
+		 fill=black, font=\large\scshape, circular drop shadow,execute at
+		 begin node=\hskip0pt] (concept) {{\bf Материя}}
+    [clockwise from=-60]
+    child[concept color=green!50!black] {
+	node[concept, line  width=1ex, fill=magenta!10,
+		text=black]
+		{{\bf Не имеет\\ Структуру}}
+	[clockwise from=300]
+	child { node[concept] {Энергия, ЭМ Поле}
+	  [clockwise from=0]
+	  child [concept color=black!50!magenta!90 ]{ node[concept] {\scalebox{0.9}{Излучение}}}
+	 	 child [sibling angle=180, concept color=black!80!blue!90] { node[concept] {Скрытая\\ энергия}}}
+	  }
+    child[concept color=blue] {
+      node[concept, concept color=blue, line  width=1ex, fill=magenta!10,
+	  	text=black]
+		{{\bf Имеет\\ Структуру}}
+	  [clockwise from=-120]
+	  child { node[concept] {Вещество}
+	  [clockwise from=0]
+	  child [concept color=black!80!blue!90] { node[concept] {Скрытое\\ вещество}}
+	  child [sibling angle=180, concept color=blue!70!cyan!50, text=black] { node[concept] {Обычное\\ вещество}}}
+    };
+\end{tikzpicture}
+\end{center}
+
+\begin{textblock}{5}(10.65,2.5)
+       \begin{shadowblock}{4cm}
+%	       \parbox{110pt}{%
+		\begin{tikzpicture}
+		\node[text width=5cm] {%
+		{\tiny{\bf Примеры диаграмм со слоями в}
+			$\text{{\tiny{\bf формате}}}^{\text{%
+		\pdfcomment[color={1 0.3 1},voffset=4pt,opacity=0.45,
+		subject={Аннотация},author={Просмотр вложенных документов}]{%
+		Для просмотра демонстрационной версии LugaTeX}}}$\\[-2pt]
+		\hspace{5pt}\pdfmarkupcomment[color=white,opacity=1.0,
+		subject={Аннотация},author={Просмотр вложенных PDF документов}]{}{Теоретическая физика}
+		\hspace{1pt} Ядерный реактор PWR:
+			\hspace{1.1pt}{\bf нажмите}~\attachfile[icon=PushPin,scale=0.4,
+	       color=1 0 0,mimetype=application/pdf,
+	       author={lugatex@yahoo.com}]{ocg_layers_05.pdf}\\[2pt]
+	       \includegraphics[scale=0.43]{pressurized-water-reactor}\\
+	       \hspace{5pt}\pdfmarkupcomment[color=white,opacity=1.0,
+		   subject={Аннотация},author={Просмотр вложенных PDF документов}]{}{Теоретическая физика}
+		   \hspace{1pt} Теоремы и определения:~{\bf нажмите}~\attachfile[icon=PushPin,scale=0.4,
+			color=1 0 0,mimetype=application/pdf,
+				author={lugatex@yahoo.com}]{ocg_layers_01.pdf}\\[-5pt]
+		\hspace{5pt}\pdfmarkupcomment[color=white,opacity=1.0,
+		subject={Аннотация},author={Просмотр вложенных PDF документов}]{}{Теоретическая физика} 
+		\hspace{1pt} Коммутативная алгебра:\hspace{4.5pt}{\bf %
+			нажмите}~\attachfile[icon=PushPin,scale=0.4,color=1 0 0,mimetype=application/pdf,
+				author={lugatex@yahoo.com}]{ocg_layers_02.pdf}}};
+
+		\end{tikzpicture}
+       \end{shadowblock}
+\end{textblock}
+
+\begin{textblock}{5}(0,3.15)
+\newcommand{\slice}[4]{
+  \pgfmathparse{0.4*#1+0.35*#2}
+  \let\midangle\pgfmathresult
+
+  % slice
+  \draw[
+  	thick,
+	inner color=white,
+	top color=light-blue,
+  	bottom color=black!70!blue,
+	draw=magenta,
+	bottom color=white,
+	%circular drop shadow,
+	circular drop shadow={shadow scale=1.05},
+	circular drop shadow={opacity=0.15},
+	%shading=axis,
+	shading angle=6,
+	rotate=180,
+	line width=0.1ex] (0,0) -- (#1:1) arc (#1:#2:1) -- cycle;
+
+  % outer label
+%  \node[label=\midangle:#4] at (\midangle:1) {};
+
+  % inner label
+  \pgfmathparse{min((#2-#1-10)/110*(-0.3),0)}
+  \let\temp\pgfmathresult
+  \pgfmathparse{max(\temp,-0.5) + 0.8}
+  \let\innerpos\pgfmathresult
+%  \node at (\midangle:\innerpos) {#3};
+}
+
+\begin{tikzpicture}[scale=2.2]
+
+\newcounter{a}
+\newcounter{b}
+\foreach \p/\t in {1/\mbox{}, 4/\mbox{}, 20/\mbox{}, 75/\mbox{}}
+  {
+    \setcounter{a}{\value{b}}
+    \addtocounter{b}{\p}
+    \slice{\thea/100*360}
+          {\theb/100*360}
+		  {{\tiny \p\%}}{\t}
+  }
+\end{tikzpicture}
+	
+\end{textblock}
+
+\begin{textblock}{8}(0.5,10.15)
+	\noindent
+	{\tiny{\bf 
+	\textcolor{red!50!yellow!90}{\underline{Материя во Вселенной}:}\\
+	\textcolor{black!80!blue!90}{Скрытая энергия} "--- 75\%\\
+	\textcolor{black!80!blue!90}{Скрытое вещество} "--- 20\%\\
+	\textcolor{blue!70!cyan!50}{Обычное вещество} "--- 4\%\\
+	\textcolor{black!50!magenta!90}{Излучение} "--- 1\%
+	}}
+\end{textblock}
+
+%\tikz \draw[brown,overlay] (-0.6,1.87) -- (-0.9,1.87) -- (-0.9,5) circle (2pt);
+\tikz \draw[brown,overlay, ->] (-0.6,1.87) -- (-0.9,1.87) -- (-0.9,6.3) --
+	(-0.6,6.34);
+\tikz \draw[brown,overlay, ->] (-0.72,2.27) -- (-0.88,2.27) -- (-0.88,5.4) --
+	(-0.88,5.8) -- (-0.65,5.9);
+\tikz \draw[brown,overlay, ->] (-0.85,2.73) -- (-0.85,2.73) -- (-0.85,4) --
+	(-0.1,4.7);
+\tikz \draw[brown,overlay, ->] (1.2,3.13) -- (2.5,3.13) -- (2.5,4.3);
+
+%Привет пробная часть срытого текста, \xBld{mythoughts}the number is the
+%value of the integral $\int_0^4 4x + \frac14\,dx$. \eBld Want a
+%hint? \setLinkText[%
+%\A{\JS{%
+%	var oLayer = getxBld(``mythoughts'');
+%	if ( oLayer != null )
+%		oLayer.state = !oLayer.state;
+%		}}
+%]{\textcolor{red}{Click here}} I hope that hint worked for you.
+%Click on the link to hide the layer again.\par
+%
+
+% Navigational Panel 
+% \newpage
+% \includepdf{adobe_navibar.pdf}

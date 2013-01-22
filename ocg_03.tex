@@ -1,0 +1,106 @@
+\documentclass{article}
+\usepackage{animate}
+\usepackage{tikz}
+\usepackage{hyperref}
+
+\makeatletter
+% command to create toggle link to animation frame (push button)%
+\newcommand{\ShowHideFrame}[3]{%
+% #1: anim No. (zero-based),
+% #2: frame No. (zero-based),
+% #3: link text
+\leavevmode%
+\pdfstartlink user {
+/Subtype /Link
+/Border [\@pdfborder]%
+/A <<
+/S/JavaScript
+/JS (
+\if@anim@useocg%
+if(a#1.fr[#2].state&=& true){
+a#1.fr[#2].state=false;
+}else{
+a#1.fr[#2].state=true;
+}
+\else
+if (a#1.fr[#2].display&=& display.visible){
+a#1.fr[#2].display=display.hidden;
+}else{
+a#1.fr[#2].display=display.visible;
+}
+this.dirty=false; %reset document status to \upsilonnchanged'
+\fi
+)
+>>
+}#3%
+\pdfendlink%
+}
+% command to create link that goes to particular frame while hiding
+% the current one (radio button)
+\newcommand{\GoToFrame}[3]{%
+% #1: anim No. (zero-based),
+% #2: frame No. (zero-based),
+% #3: link text
+\leavevmode%
+\pdfstartlink user {
+/Subtype /Link
+/Border [\@pdfborder]%
+/A <<
+/S/JavaScript
+/JS (
+\if@anim@useocg
+a#1.fr[a#1.idx].state=false;
+a#1.idx=#2;
+a#1.fr[#2].state=true;
+\else
+a#1.fr[a#1.idx].display=display.hidden;
+a#1.idx=#2;
+a#1.fr[#2].display=display.visible;
+this.dirty=false;
+\fi
+)
+>>
+}#3%
+\pdfendlink%
+}
+
+\makeatother
+
+\begin{document}
+
+\begin{center}
+\begin{animateinline}[width=0.6\linewidth,controls]{12}
+
+	\multiframe{41}{n=0+1}{
+
+\begin{tikzpicture}
+\clip (-0.5,-1.5) rectangle (5,2);
+%--------
+\draw[thin,->] (-2mm,0) -- (5,0) node[below left] {$t$};
+\draw[thin,->] (0,-1.5) -- (0,2) node[above left,rotate=90]
+{$y=\sin(t)$};
+%--------
+\draw[dashed]  (0,0) sin (1,1) cos (2,0) sin (3,-1) cos (4,0);
+%--------
+\draw[fill=blue]    (\n/10,{sin(\n*9)}) circle (1mm);
+%--------
+\end{tikzpicture}
+}
+\end{animateinline}\\[2ex]
+
+\makebox[0.6\linewidth][r]{toggle frame:
+
+\ShowHideFrame{0}{0}{$\sin 0$}
+\ShowHideFrame{0}{10}{$\sin \frac{\pi}{2}$}
+\ShowHideFrame{0}{20}{$\sin \pi$}
+\ShowHideFrame{0}{30}{$\sin \frac{3}{2}\pi$}
+\ShowHideFrame{0}{40}{$\sin 2\pi$}}\\
+\makebox[0.6\linewidth][r]{go to frame:
+\GoToFrame{0}{0}{$\sin 0$}
+\GoToFrame{0}{10}{$\sin \frac{\pi}{2}$}
+\GoToFrame{0}{20}{$\sin \pi$}
+\GoToFrame{0}{30}{$\sin \frac{3}{2}\pi$}
+\GoToFrame{0}{40}{$\sin 2\pi$}}
+
+\end{center}
+\end{document} 

@@ -1,0 +1,103 @@
+\documentclass{article}
+\usepackage{animate}
+\usepackage{hyperref}
+
+\makeatletter
+% command to create a toggle link
+\newcommand{\ShowHideLayer}[3]{%
+% #1: anim No. (zero-based),
+% #2: layer No. (zero-based),
+% #3: link text
+\leavevmode%
+\pdfstartlink user {
+	/Subtype /Link
+	/Border [\@pdfborder]%
+	/A <<
+		/S/JavaScript
+		/JS (
+			\if at anim@useocg%
+				if(a#1.fr[#2].state&=& true){
+					a#1.fr[#2].state=false;
+				}else{
+					a#1.fr[#2].state=true;
+			 	}
+			\else
+				if (a#1.fr[#2].display&=& display.visible){
+					a#1.fr[#2].display=display.hidden;
+				}else{
+					a#1.fr[#2].display=display.visible;
+				}
+				this.dirty=false;
+			\fi
+		)
+	>>
+	}#3%
+	\pdfendlink%
+}
+
+% command to create a link to show/hide all layers
+
+\newcommand{\ShowHideAll}[2]{%
+	% #1: anim No. (zero-based),
+	% #2: link text
+	\leavevmode%
+	\pdfstartlink user {
+		/Subtype /Link
+		/Border [\@pdfborder]%
+		/A <<
+			/S/JavaScript
+			/JS (
+				var countvisible=0;
+				for(var i in a#1.fr){
+					\if at anim@useocg
+						if(a#1.fr[i].state&=& true){countvisible++;}
+					\else
+						if (a#1.fr[i].display&=& display.visible){countvisible++;}
+					\fi
+				}
+				if(countvisible){
+					for(var i in a#1.fr){
+						\if at anim@useocg
+							a#1.fr[i].state=false;
+						\else
+							a#1.fr[i].display=display.hidden;
+							this.dirty=false;
+						\fi
+					}
+				}
+				else{
+					for(var i in a#1.fr){
+					\if at anim@useocg
+						a#1.fr[i].state=true;
+					\else
+						a#1.fr[i].display=display.visible;
+						this.dirty=false;
+					 \fi
+					 }
+				}
+			)
+		>>
+		}#2%
+		\pdfendlink%
+		}
+		\makeatother
+		\begin{document}
+		\begin{center}
+			%animated layer-set No. 0
+			%                                          v-- frame rate ignored
+			\animategraphics[width=0.6\linewidth,step]{1}{layer-}{0}{3}
+			\ShowHideLayer{0}{0}{Show/hide layer 0}\\
+	   	        \ShowHideLayer{0}{1}{Show/hide layer 1}\\
+			\ShowHideLayer{0}{2}{Show/hide layer 2}\\
+			\ShowHideLayer{0}{3}{Show/hide layer 3}\\
+			\ShowHideAll{0}{Show/hide all layers }
+		\end{center}
+		\end{document}
+
+
+
+
+
+
+
+
